@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vibrant-green: #00d415;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
