@@ -279,6 +279,36 @@ const TargetAudience: React.FC = () => (
   </section>
 );
 
+const reviewImages = [
+  '/review1.jpeg', '/review2.jpeg', '/review3.jpeg',
+  '/review4.jpeg', '/review5.jpeg', '/review6.jpeg',
+];
+
+const ReviewSlider: React.FC = () => (
+  <section className="py-24 px-0 bg-zinc-950 overflow-hidden">
+    <div className="max-w-7xl mx-auto px-6 mb-12">
+      <h3 className="text-vibrant-green font-bold text-sm mb-4 tracking-widest uppercase">Reviews</h3>
+      <p className="text-3xl md:text-4xl font-black">실제 수강생 후기</p>
+    </div>
+    <div className="relative">
+      {/* Left/Right fade */}
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none"></div>
+      {/* Marquee track */}
+      <div className="animate-marquee flex gap-6 w-max">
+        {[...reviewImages, ...reviewImages].map((src, idx) => (
+          <img
+            key={idx}
+            src={src}
+            alt={`수강 후기 ${(idx % reviewImages.length) + 1}`}
+            className="h-[400px] md:h-[500px] w-auto rounded-2xl object-cover shrink-0"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const CTASection: React.FC = () => (
   <section id="consult" className="py-32 px-6 bg-zinc-950">
     <div className="max-w-4xl mx-auto text-center">
@@ -349,6 +379,7 @@ export default function App() {
       <Instructor />
       <WhyUs />
       <TargetAudience />
+      <ReviewSlider />
       <CTASection />
       <Footer />
 
