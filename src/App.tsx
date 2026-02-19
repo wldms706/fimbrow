@@ -28,7 +28,7 @@ const Navbar: React.FC = () => (
   </nav>
 );
 
-const videos = ['/hero.MOV', '/hero2.MOV', '/hero3.MOV'];
+const videos = ['/hero1.mp4', '/hero2.mp4', '/hero3.mp4'];
 
 const Hero: React.FC = () => {
   const headlines: HeadlineItem[] = [
@@ -282,6 +282,8 @@ const TargetAudience: React.FC = () => (
 const reviewImages = [
   '/review1.jpeg', '/review2.jpeg', '/review3.jpeg',
   '/review4.jpeg', '/review5.jpeg', '/review6.jpeg',
+  '/review7.jpeg', '/review8.jpeg', '/review9.jpeg',
+  '/review10.jpeg',
 ];
 
 const ReviewSlider: React.FC = () => (
