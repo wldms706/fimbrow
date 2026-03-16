@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-vibrant-green: #00d415;
+  --color-vibrant-green: #e9e1a6;
+  --color-main-dark: #072c29;
+  --font-serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
 }
 
 html {
