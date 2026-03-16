@@ -117,7 +117,7 @@ const Numbers: React.FC = () => (
 
 // --- Urgency ---
 const Urgency: React.FC = () => (
-  <section className="py-20 px-6 bg-burg text-center">
+  <section className="py-20 px-6 bg-main-darker text-center">
     <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green/70 mb-5 inline-block">Why Now</span>
     <h2 className="font-serif text-[clamp(1.4rem,3vw,2.2rem)] font-semibold text-white mb-8 leading-snug">지금 신청해야 하는 이유</h2>
     <div className="w-7 h-px bg-vibrant-green/40 mx-auto mb-8"></div>
@@ -582,7 +582,7 @@ const Pricing: React.FC = () => (
       <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">수강료 안내</h2>
       <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
 
-      <div className="max-w-[860px] mx-auto bg-burg px-6 py-5 flex flex-wrap items-center justify-center gap-2">
+      <div className="max-w-[860px] mx-auto bg-main-darker px-6 py-5 flex flex-wrap items-center justify-center gap-2 border border-vibrant-green/20">
         <span className="text-base font-bold text-white tracking-wider">⚑ 2026년 6월 마감</span>
         <span className="w-1 h-1 bg-white/35 rounded-full"></span>
         <span className="text-sm text-white/65">통합 커리큘럼 마지막 기수</span>

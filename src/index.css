@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-vibrant-green: #e9e1a6;
-  --color-main-dark: #072c29;
-  --color-main-darker: #041e1c;
-  --color-burg: #6B1F2A;
+  --color-vibrant-green: #39FF14;
+  --color-main-dark: #000000;
+  --color-main-darker: #0a0a0a;
   --font-serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
 }
 
@@ -14,7 +13,7 @@ html {
 
 body {
   font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-  background: #072c29;
+  background: #000000;
   color: #ffffff;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
@@ -22,7 +21,7 @@ body {
 }
 
 ::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-thumb { background: #e9e1a6; }
+::-webkit-scrollbar-thumb { background: #39FF14; }
 
 @keyframes marquee {
   0% { transform: translateX(0); }
