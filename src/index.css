@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-vibrant-green: #e9e1a6;
-  --color-main-dark: #072c29;
+  --color-g: #333333;
+  --color-wg: #E7E5E2;
+  --color-rose: #C9A3A3;
+  --color-beige: #D8C7B5;
+  --color-burg: #6B1F2A;
+  --color-rose-pale: #F5EEEE;
+  --color-beige-pale: #F5F0EA;
+  --color-white: #FDFCFB;
+  --color-muted: #888888;
   --font-serif: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
 }
 
@@ -11,10 +18,16 @@ html {
 }
 
 body {
-  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background: #FDFCFB;
+  color: #333333;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: #D8C7B5; }
 
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -27,4 +40,9 @@ body {
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
