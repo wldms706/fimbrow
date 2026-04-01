@@ -292,29 +292,30 @@ const InstructorSection: React.FC = () => (
   </section>
 );
 
-const Results: React.FC = () => (
+const GomupanPractice: React.FC = () => (
   <section className="py-24 px-6 bg-main-darker text-center">
     <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Clinical Results</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">15,000명 임상에서 나온 결과</h2>
+      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Technique</span>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">이런 기법을 배우실 거예요</h2>
       <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-      <p className="text-sm text-white/50 font-serif italic">좋은 반영구는 시간이 지나도 자연스럽습니다</p>
+      <p className="text-sm text-white/50 font-serif italic">핌브로우 마스터클래스에서 배우는 3가지 핵심 기법</p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-        {['엠보', '수지', '콤보', '잔흔 커버', '잔흔 커버', '비대칭 교정'].map((type, idx) => (
-          <div key={idx} className="bg-main-dark border border-white/10 overflow-hidden">
-            <div className="grid grid-cols-2 gap-px bg-white/10">
-              <div className="aspect-square bg-white/5 flex items-center justify-center text-[0.6rem] tracking-wider uppercase text-white/30">Before</div>
-              <div className="aspect-square bg-white/5 flex items-center justify-center text-[0.6rem] tracking-wider uppercase text-white/30">After</div>
-            </div>
-            <div className="px-4 py-3 flex justify-between items-center">
-              <span className="text-xs text-white font-medium">{type}</span>
-              <span className="text-xs text-vibrant-green/60">B→A</span>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        {[
+          { src: '/gomupan-embo.jpeg', name: '엠보', eng: 'Embo', desc: '한 올 한 올 자연스러운 결을 표현하는 기법' },
+          { src: '/gomupan-suji.jpeg', name: '수지', eng: 'Suji', desc: '파우더처럼 부드러운 그라데이션 채움 기법' },
+          { src: '/gomupan-combo.jpeg', name: '콤보', eng: 'Combo', desc: '엠보의 결 + 수지의 채움을 결합한 기법' },
+        ].map((item, idx) => (
+          <div key={idx} className="border border-white/10 overflow-hidden rounded-lg hover:border-vibrant-green/30 transition-colors">
+            <img src={item.src} alt={`${item.name} 기법`} className="w-full aspect-[3/4] object-cover" />
+            <div className="p-4 text-center">
+              <div className="text-[0.62rem] tracking-wider text-vibrant-green/60 uppercase mb-1">{item.eng}</div>
+              <h3 className="font-serif text-lg font-semibold text-white mb-1">{item.name}</h3>
+              <p className="text-xs text-white/50">{item.desc}</p>
             </div>
           </div>
         ))}
       </div>
-      <p className="text-xs text-white/40 mt-6 font-serif italic">실제 시술 사진은 수강 상담 시 확인하실 수 있습니다</p>
     </div>
   </section>
 );
@@ -778,7 +779,7 @@ export default function CoursePage() {
       <Market />
       <Philosophy />
       <InstructorSection />
-      <Results />
+      <GomupanPractice />
       <Difference />
       <Curriculum />
       <Environment />
