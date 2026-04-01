@@ -18,60 +18,33 @@ const Hero: React.FC = () => {
   }, [videoIndex]);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-[60px] px-6 overflow-hidden bg-main-dark">
+    <section className="relative min-h-screen flex flex-col items-start justify-end px-8 md:px-16 pb-20 overflow-hidden">
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         src={videos[videoIndex]}
-        autoPlay
-        muted
-        playsInline
+        autoPlay muted playsInline
         onEnded={handleVideoEnded}
       />
-      <div className="absolute inset-0 bg-black/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
 
-      <div className="relative z-10 max-w-[640px] text-center" style={{ animation: 'fadeUp .65s ease both' }}>
-        <p className="text-[0.65rem] tracking-[0.38em] uppercase text-vibrant-green/80 mb-12 flex items-center justify-center gap-3">
-          <span className="w-5 h-px bg-vibrant-green/50"></span>
-          반영구 눈썹 전문 교육
-          <span className="w-5 h-px bg-vibrant-green/50"></span>
+      <div className="relative z-10 max-w-[700px]" style={{ animation: 'fadeUp .8s ease both' }}>
+        <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/40 mb-6">Master Class</p>
+        <h1 className="font-serif text-[clamp(3rem,8vw,6rem)] font-light leading-[0.9] text-white mb-8">
+          FIMBROW<br/>
+          <span className="text-white/50">MASTER CLASS</span>
+        </h1>
+        <p className="text-sm text-white/50 leading-relaxed mb-10 max-w-[400px]">
+          처음부터 제대로 배우는 반영구 눈썹 전문 교육.<br/>
+          12년 임상 노하우를 전수합니다.
         </p>
-
-        <div className="mb-14" style={{ animation: 'fadeUp .65s ease .15s both' }}>
-          <p className="font-serif text-[clamp(1.1rem,2vw,1.5rem)] text-white/50 mb-4 leading-relaxed">
-            잘하는 사람은 처음부터 달랐을까요?
-          </p>
-          <div className="w-px h-7 bg-vibrant-green/40 mx-auto mb-4"></div>
-          <h1 className="font-serif text-[clamp(2rem,4.5vw,3.6rem)] font-bold italic leading-tight">
-            <span className="text-white">아닙니다.&nbsp;</span>
-            <span className="text-vibrant-green">배운 방법이</span>
-            <span className="text-white"> 달랐습니다.</span>
-          </h1>
-        </div>
-
-        <div className="border-t border-white/15 pt-8 mb-10 flex flex-col items-center gap-2" style={{ animation: 'fadeUp .65s ease .3s both' }}>
-          <p className="text-sm text-white/50">12년 임상 · 15,000명 시술 데이터를 바탕으로</p>
-          <p className="text-base text-vibrant-green font-medium">엠보 · 수지 · 콤보 · 잔흔커버 · 비대칭교정</p>
-          <div className="h-4"></div>
-          <p className="text-sm text-white/50">처음부터 제대로 배우는</p>
-          <p className="font-serif text-lg tracking-[0.32em] text-white font-semibold mt-2">FIMBROW MASTER CLASS</p>
-        </div>
-
-        <div className="flex flex-col items-center gap-3 mb-8" style={{ animation: 'fadeUp .65s ease .52s both' }}>
-          <a href="#application" className="px-11 py-4 bg-vibrant-green text-main-dark font-bold text-sm tracking-wider hover:opacity-80 transition-opacity">
-            수강 상담 신청하기
+        <div className="flex gap-4">
+          <a href="#application" className="px-8 py-3 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity">
+            Apply Now
           </a>
-          <a href="#curriculum" className="px-9 py-3 border border-white/20 text-white/70 text-sm tracking-wider hover:border-white/40 transition-colors">
-            커리큘럼 보기
+          <a href="#curriculum" className="px-8 py-3 border border-white/30 text-white text-[0.7rem] tracking-[0.2em] uppercase hover:bg-white hover:text-main-dark transition-all">
+            Curriculum
           </a>
-        </div>
-
-        <div className="flex items-center justify-center gap-2 flex-wrap text-xs text-white/50" style={{ animation: 'fadeUp .65s ease .42s both' }}>
-          <span>한 기수 최대 4명</span>
-          <span className="w-1 h-1 bg-vibrant-green/50 rounded-full"></span>
-          <span>도제식 집중 교육</span>
-          <span className="w-1 h-1 bg-vibrant-green/50 rounded-full"></span>
-          <span className="text-vibrant-green font-semibold">2026년 6월 곧 마감</span>
         </div>
       </div>
     </section>
@@ -79,238 +52,177 @@ const Hero: React.FC = () => {
 };
 
 const Numbers: React.FC = () => (
-  <section className="py-20 px-6 bg-main-dark text-center">
-    <div className="max-w-[680px] mx-auto mb-10">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-4 inline-block">Numbers</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white leading-snug">숫자로 보는 핌브로우</h2>
-    </div>
-    <div className="grid grid-cols-2 md:grid-cols-4 max-w-[900px] mx-auto border border-white/10">
-      {[
-        { val: '12년', label: '임상 경력' },
-        { val: '15,000명', label: '누적 시술' },
-        { val: '4주 + 56시간', label: '온라인 4주 + 본교육 56시간' },
-        { val: '4명', label: '최대 수강 인원' },
-      ].map((item, idx) => (
-        <div key={idx} className="py-12 px-6 text-center border-r border-b border-white/10 last:border-r-0">
-          <div className="font-serif text-[clamp(2.2rem,4vw,3.5rem)] font-bold text-vibrant-green leading-none">{item.val}</div>
-          <div className="text-sm text-white/50 mt-2 leading-relaxed">{item.label}</div>
-        </div>
-      ))}
-    </div>
-  </section>
-);
-
-const Urgency: React.FC = () => (
-  <section className="py-20 px-6 bg-main-darker text-center">
-    <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green/70 mb-5 inline-block">Why Now</span>
-    <h2 className="font-serif text-[clamp(1.4rem,3vw,2.2rem)] font-semibold text-white mb-8 leading-snug">지금 신청해야 하는 이유</h2>
-    <div className="w-7 h-px bg-vibrant-green/40 mx-auto mb-8"></div>
-    <p className="font-serif text-[clamp(1.8rem,4vw,3rem)] font-bold text-vibrant-green italic leading-snug mb-10">
-      이번 기수는<br/>혜택가로 수강할 수 있는<br/>마지막 기회입니다
-    </p>
-    <ul className="max-w-[480px] mx-auto text-sm text-white/60 space-y-3">
-      {['2026년 6월 마지막 100만원 할인', '인원 마감 시 조기 종료됩니다'].map((li, i) => (
-        <li key={i} className="flex items-center justify-center gap-2 py-1 border-b border-white/10">
-          <span className="w-1 h-1 bg-vibrant-green rounded-full shrink-0"></span>
-          {li}
-        </li>
-      ))}
-    </ul>
-    <a href="#application" className="inline-block mt-10 px-11 py-4 bg-vibrant-green text-main-dark font-bold text-sm tracking-wider hover:opacity-80 transition-opacity">
-      지금 상담 신청하기
-    </a>
-  </section>
-);
-
-const Problem: React.FC = () => (
-  <section className="py-24 px-6 bg-main-darker text-center">
-    <div className="max-w-[680px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Why This Job</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white leading-snug">
-        내 시간을 내가 정하고,<br/>내 수입을 내가 만드는 삶
-      </h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-      <p className="text-white/50 leading-relaxed">출퇴근도, 상사도, 정해진 월급도 없습니다.</p>
-    </div>
-
-    <div className="max-w-[520px] mx-auto mt-10 p-8 bg-main-dark text-center">
-      <p className="text-sm text-white/40 mb-5">반영구 시술자가 가질 수 있는 것</p>
-      <div className="flex flex-wrap justify-center gap-1 mb-5">
-        {['자유로운 시간', '장소의 자유', '높은 수익성', '평생 기술', '나만의 브랜드'].map(t => (
-          <span key={t} className="text-xs text-white/80 border border-white/20 px-3 py-1 whitespace-nowrap">{t}</span>
+  <section className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-12">Numbers</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-white/10">
+        {[
+          { val: '12', unit: '년', label: '임상 경력' },
+          { val: '15,000', unit: '명', label: '누적 시술' },
+          { val: '4주+56', unit: 'h', label: '교육 시간' },
+          { val: '4', unit: '명', label: '최대 인원' },
+        ].map((item, idx) => (
+          <div key={idx} className="py-10 pr-8 border-b border-white/10">
+            <div className="flex items-baseline gap-1">
+              <span className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-light text-white leading-none">{item.val}</span>
+              <span className="text-sm text-white/40">{item.unit}</span>
+            </div>
+            <div className="text-xs text-white/30 mt-2 tracking-wider">{item.label}</div>
+          </div>
         ))}
       </div>
-      <p className="text-sm text-white/40 leading-relaxed">하루 2~3건 시술로도<br/>충분한 수입을 만들 수 있는 직업입니다.</p>
-    </div>
-
-    <div className="inline-block mt-8 px-8 py-5 bg-vibrant-green/10 border-l-[3px] border-vibrant-green max-w-[480px] text-base text-white/70 leading-relaxed">
-      아이를 키우면서도, 혼자서도, 어디서든.<br/>
-      <strong className="text-vibrant-green font-bold text-lg">내 손 하나로 만드는 자유로운 삶.</strong><br/>
-      그 시작이 반영구입니다.
-    </div>
-
-    <div className="max-w-[680px] mx-auto mt-10 text-center">
-      <p className="font-serif text-[clamp(1.4rem,3vw,2.2rem)] font-semibold italic text-white leading-relaxed">
-        <span className="bg-gradient-to-b from-transparent from-55% to-vibrant-green/30 to-55%">여자가 가질 수 있는</span><br/>
-        <span className="bg-gradient-to-b from-transparent from-55% to-vibrant-green/30 to-55%">최고의 직업이라 확신합니다.</span>
-      </p>
     </div>
   </section>
 );
 
-const Market: React.FC = () => (
-  <section className="py-24 px-6 bg-main-dark text-center">
-    <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Market Growth</span>
-      <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-semibold text-white leading-snug">
-        반영구 시장은<br/>매년 성장하고 있습니다
-      </h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+const WhyThisJob: React.FC = () => (
+  <section className="py-24 px-8 md:px-16 bg-main-darker">
+    <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div>
+        <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Why This Job</p>
+        <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white leading-snug mb-8">
+          내 시간을<br/>내가 정하는 삶
+        </h2>
+        <p className="text-sm text-white/40 leading-relaxed">
+          출퇴근도, 상사도, 정해진 월급도 없습니다.<br/>
+          하루 2~3건 시술로도 충분한 수입을 만들 수 있는 직업.<br/>
+          아이를 키우면서도, 혼자서도, 어디서든.
+        </p>
+      </div>
+      <div className="grid grid-cols-2 gap-1">
+        {['자유로운 시간', '장소의 자유', '높은 수익성', '평생 기술'].map((tag, idx) => (
+          <div key={idx} className="p-6 bg-white/[0.02] border border-white/5">
+            <span className="text-sm text-white/60">{tag}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-[800px] mx-auto mt-8">
+const MarketGrowth: React.FC = () => (
+  <section className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Market</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">반영구 시장은<br/>매년 성장하고 있습니다</h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
         {[
-          { val: '꾸준한 수요', desc: '눈썹 반영구는 유행이 아닌\n일상이 되었습니다' },
-          { val: '낮은 진입 비용', desc: '큰 매장 없이도\n1인 창업이 가능합니다' },
-          { val: '높은 재방문율', desc: '한 번 오신 고객은\n꾸준히 다시 찾습니다' },
+          { title: '꾸준한 수요', desc: '눈썹 반영구는 유행이 아닌\n일상이 되었습니다' },
+          { title: '낮은 진입 비용', desc: '큰 매장 없이도\n1인 창업이 가능합니다' },
+          { title: '높은 재방문율', desc: '한 번 오신 고객은\n꾸준히 다시 찾습니다' },
         ].map((item, idx) => (
-          <div key={idx} className="p-8 bg-white/5 border border-white/10">
-            <div className="font-serif text-lg font-bold text-vibrant-green mb-3">{item.val}</div>
-            <p className="text-sm text-white/50 leading-relaxed whitespace-pre-line">{item.desc}</p>
+          <div key={idx} className="p-8 bg-white/[0.02] border border-white/5">
+            <span className="font-serif text-4xl text-white/5 block mb-6">0{idx + 1}</span>
+            <h4 className="text-sm font-medium text-white tracking-wider mb-3">{item.title}</h4>
+            <p className="text-xs text-white/35 leading-relaxed whitespace-pre-line">{item.desc}</p>
           </div>
         ))}
       </div>
 
-      <p className="font-serif text-[clamp(1.3rem,2.5vw,2rem)] italic font-bold text-vibrant-green mt-10 leading-relaxed">
+      <p className="font-serif text-[clamp(1.2rem,2.5vw,1.8rem)] text-white/60 italic mt-16 text-center">
         "제대로 배우면, 평생 나를 지켜줄 기술이 됩니다."
       </p>
     </div>
   </section>
 );
 
-const Philosophy: React.FC = () => (
-  <section className="py-24 px-6 bg-main-darker text-center">
-    <div className="max-w-[680px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Education Philosophy</span>
-
-      <div className="max-w-[500px] mx-auto mb-14">
-        <span className="font-serif text-5xl text-vibrant-green/40 block mb-4">&ldquo;</span>
-        <div className="flex flex-col gap-4">
-          <span className="font-serif text-[clamp(1.3rem,2.8vw,1.9rem)] italic text-white/75">나도 할 수 있을까?</span>
-          <span className="font-serif text-[clamp(1.3rem,2.8vw,1.9rem)] italic text-white/75">왜 나는 안 되는 걸까?</span>
-        </div>
-        <span className="font-serif text-5xl text-vibrant-green/40 block mt-4">&rdquo;</span>
+const Urgency: React.FC = () => (
+  <section className="py-20 px-8 md:px-16 bg-main-darker border-y border-white/5">
+    <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+      <div>
+        <p className="text-[0.6rem] tracking-[0.4em] uppercase text-accent mb-3">Limited</p>
+        <h3 className="font-serif text-3xl font-light text-white">2026년 6월 마감</h3>
+        <p className="text-sm text-white/40 mt-2">통합 커리큘럼 마지막 기수 · 교육지원금 100만원 마지막 적용</p>
       </div>
-
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">그래서<br/>이 수업을 만들었습니다</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+      <a href="#application" className="inline-block px-10 py-4 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity shrink-0">
+        Apply Now
+      </a>
     </div>
+  </section>
+);
 
-    <div className="max-w-[560px] mx-auto mb-12 p-10 border border-white/10 relative">
-      <span className="absolute -top-6 left-6 font-serif text-[8rem] text-white/5 leading-none">&ldquo;</span>
-      <p className="font-serif text-lg text-white/85 leading-relaxed italic relative z-10">
-        "처음부터 제대로 배웠다면<br/>이 고객은 피해자가 되지 않았을 텐데."
+const Philosophy: React.FC = () => (
+  <section className="relative py-32 px-8 md:px-16 overflow-hidden">
+    <img src="/profile2.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-black/60"></div>
+    <div className="relative z-10 max-w-[600px]">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/40 mb-6">Education Philosophy</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light text-white leading-snug mb-8">
+        처음부터 제대로 배웠다면<br/>
+        이 고객은 피해자가<br/>되지 않았을 텐데.
+      </h2>
+      <p className="text-sm text-white/50 leading-relaxed">
+        12년 동안 1.5만 명의 고객을 시술하며,<br/>
+        안타까운 경우를 너무 많이 봤습니다.<br/>
+        기술만 가르치는 교육이 아니라,<br/>
+        올바른 방향을 알려주는 교육을 만들었습니다.
       </p>
-      <p className="text-xs text-white/30 tracking-wider mt-6">— 12년 동안, 수없이 반복한 생각</p>
-    </div>
-
-    <div className="max-w-[560px] mx-auto text-sm text-white/50 leading-relaxed space-y-4">
-      <p>12년 동안 1.5만 명의 고객을 시술하며,<br/>안타까운 경우를 너무 많이 봤습니다.</p>
-      <p>그래서 만들었습니다.<br/><strong className="text-white/85 font-medium">기술만 가르치는 교육이 아니라, 올바른 방향을 알려주는 교육을.</strong></p>
-      <p>단 한 명의 피해자도 만들지 않고,<br/>단 한 명이라도 처음부터 제대로 배울 수 있도록.</p>
+      <p className="text-xs text-white/30 tracking-wider mt-8">— 12년 동안, 수없이 반복한 생각</p>
     </div>
   </section>
 );
 
 const InstructorSection: React.FC = () => (
-  <section className="py-24 px-6 bg-main-dark text-center">
-    <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Instructor</span>
+  <section className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Instructor</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">대표원장 박연두</h2>
 
-      <div className="w-[min(300px,78%)] mx-auto mb-10 relative">
-        <div className="absolute -inset-4 bg-vibrant-green/5 blur-[60px] rounded-full pointer-events-none"></div>
-        <img src="/profile.jpeg" alt="핌브로우 원장" className="relative w-full object-cover aspect-[3/4] rounded-xl" />
-      </div>
-
-      <div className="font-serif text-2xl tracking-[0.25em] text-white font-semibold">FIMBROW STUDIO</div>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-
-      <ul className="max-w-[360px] mx-auto">
-        {['반영구 12년 경력', '누적 시술 15,000명', '아치 디자인 전문', '잔흔 커버 전문', '비대칭 교정 전문'].map((spec, i) => (
-          <li key={i} className="flex items-center justify-center gap-3 py-3 border-b border-white/10 text-sm text-white/60 last:border-b-0">
-            <span className="w-1 h-1 bg-vibrant-green rounded-full shrink-0"></span>
-            {spec}
-          </li>
-        ))}
-      </ul>
-
-      <div className="max-w-[960px] mx-auto mt-10 pt-10 border-t border-white/10 grid grid-cols-2 gap-4 md:gap-10 text-left">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12">
         <div>
-          <h4 className="text-[0.65rem] font-bold tracking-[0.28em] uppercase text-vibrant-green mb-4 text-center">박연두 대표원장 · 약력</h4>
-          <ul className="space-y-0">
+          <img src="/profile.jpeg" alt="핌브로우 원장" className="w-full aspect-[3/4] object-cover rounded-sm" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
+          <div>
+            <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mb-6">약력</p>
             {[
               '동주대학교 미용과 졸업', '아리아 웨딩 메이크업', '화미주 헤어메이크업 · 반영구 원장',
               '아르현 헤어메이크업 · 반영구 원장', '서울 화보촬영 메이크업', '메이크업 · 반영구 중국 진출',
               '전) 야나뷰티 아카데미 대표원장', '코코뷰티아카데미', '에버핑키쉬', '컬러몬스터',
               '사) 대한문신사중앙회', '열사대 뷰티건강디자인학과 재학', '서울대 K뷰티 컨설팅 최고위과정 강사',
             ].map((item, i) => (
-              <li key={i} className="flex items-start gap-2 py-1.5 border-b border-white/5 text-xs text-white/50 leading-snug">
-                <span className="text-vibrant-green/50 shrink-0">·</span>{item}
-              </li>
+              <p key={i} className="text-xs text-white/35 py-1.5 border-b border-white/3 leading-snug">{item}</p>
             ))}
-            <li className="flex items-start gap-2 py-1.5 text-xs text-white font-medium leading-snug">
-              <span className="text-vibrant-green shrink-0">·</span>현) 핌브로우 스튜디오 대표원장
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-[0.65rem] font-bold tracking-[0.28em] uppercase text-vibrant-green mb-4 text-center">자격증 및 수상경력</h4>
-          <ul className="space-y-0">
+            <p className="text-xs text-white font-medium py-1.5 mt-1">현) 핌브로우 스튜디오 대표원장</p>
+          </div>
+          <div>
+            <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mb-6">수상경력</p>
             {[
-              '메이크업아티스트 3급', '무대분장사 2급', '방송분장사 2급', '업스타일 3급 · 2급',
-              '교원자격증', 'IFBC 반영구 강사자격증',
-              '제6회 부산광역시장배 은상 (환타지메이크업)', '제11회 동주대미용경진대회 대상 (환타지메이크업)',
-              '제7회 부산광역시장배 은상 (환타지메이크업)', 'IBO국제미용올림픽기능경기대회 대상 (바디페인팅)',
-              '제1회 PTS문화예술대전 PMU엠보 대상', '제1회 PTS문화예술대전 PMU수지 금상',
-              '제24회 국제뷰티아티스트 그랑프리 (콤보눈썹)', '제24회 국제뷰티아티스트 국회의원상',
-              '제2회 월드뷰티디자인콘테스트 그랑프리 (엠보)',
-              '제2회 소상공인기능경진대회 PTS ART WORK 은상', '제2회 소상공인기능경진대회 PTS 국회의원상',
-              '제2회 소상공인기능경진대회 PTS 특별 심사위원',
-              '제2회 월드뷰티디자인콘테스트 심사위원 (반영구 수지)',
+              '메이크업아티스트 3급', '무대분장사 2급', '방송분장사 2급', 'IFBC 반영구 강사자격증',
+              '제6회 부산광역시장배 은상', '제11회 동주대미용경진대회 대상',
+              'IBO국제미용올림픽 대상 (바디페인팅)', '제1회 PTS문화예술대전 PMU엠보 대상',
+              '제24회 국제뷰티아티스트 그랑프리', '제24회 국제뷰티아티스트 국회의원상',
+              '제2회 월드뷰티디자인 그랑프리 (엠보)', '제2회 소상공인기능경진대회 국회의원상',
+              '제2회 월드뷰티디자인콘테스트 심사위원',
             ].map((item, i) => (
-              <li key={i} className="flex items-start gap-2 py-1.5 border-b border-white/5 text-xs text-white/50 leading-snug">
-                <span className="text-vibrant-green/50 shrink-0">·</span>{item}
-              </li>
+              <p key={i} className="text-xs text-white/35 py-1.5 border-b border-white/3 leading-snug">{item}</p>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
-
-      <a href="#application" className="inline-block mt-10 px-11 py-4 bg-vibrant-green text-main-dark font-bold text-sm tracking-wider hover:opacity-80 transition-opacity">
-        수강 상담 신청하기
-      </a>
     </div>
   </section>
 );
 
-const GomupanPractice: React.FC = () => (
-  <section className="py-24 px-6 bg-main-darker text-center">
-    <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Technique</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">이런 기법을 배우실 거예요</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-      <p className="text-sm text-white/50 font-serif italic">핌브로우 마스터클래스에서 배우는 3가지 핵심 기법</p>
+const TechniqueSection: React.FC = () => (
+  <section className="py-24 px-8 md:px-16 bg-main-darker">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Technique</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">이런 기법을 배우실 거예요</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
         {[
-          { src: '/gomupan-embo.jpeg', name: '엠보', eng: 'Embo', desc: '한 올 한 올 자연스러운 결을 표현하는 기법' },
-          { src: '/gomupan-suji.jpeg', name: '수지', eng: 'Suji', desc: '파우더처럼 부드러운 그라데이션 채움 기법' },
-          { src: '/gomupan-combo.jpeg', name: '콤보', eng: 'Combo', desc: '엠보의 결 + 수지의 채움을 결합한 기법' },
+          { src: '/gomupan-embo.jpeg', name: '엠보', eng: 'EMBO', desc: '한 올 한 올 자연스러운 결을 표현하는 기법' },
+          { src: '/gomupan-suji.jpeg', name: '수지', eng: 'SUJI', desc: '파우더처럼 부드러운 그라데이션 채움 기법' },
+          { src: '/gomupan-combo.jpeg', name: '콤보', eng: 'COMBO', desc: '엠보의 결 + 수지의 채움을 결합한 기법' },
         ].map((item, idx) => (
-          <div key={idx} className="border border-white/10 overflow-hidden rounded-lg hover:border-vibrant-green/30 transition-colors">
-            <img src={item.src} alt={`${item.name} 기법`} className="w-full aspect-[3/4] object-cover" />
-            <div className="p-4 text-center">
-              <div className="text-[0.62rem] tracking-wider text-vibrant-green/60 uppercase mb-1">{item.eng}</div>
-              <h3 className="font-serif text-lg font-semibold text-white mb-1">{item.name}</h3>
+          <div key={idx} className="group relative overflow-hidden">
+            <img src={item.src} alt={item.name} className="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div className="absolute bottom-0 left-0 p-6">
+              <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/50 mb-1">{item.eng}</p>
+              <h3 className="font-serif text-2xl font-light text-white mb-1">{item.name}</h3>
               <p className="text-xs text-white/50">{item.desc}</p>
             </div>
           </div>
@@ -321,49 +233,24 @@ const GomupanPractice: React.FC = () => (
 );
 
 const Difference: React.FC = () => (
-  <section className="py-24 px-6 bg-main-dark text-center">
-    <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Why Only 4</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">
-        왜 한 기수에 <span className="text-vibrant-green text-[calc(clamp(2rem,4vw,3.2rem)+3pt)]">4명만</span> 모집할까요?
+  <section className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Why Only 4</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-4">
+        왜 한 기수에 4명만 모집할까요?
       </h2>
-      <p className="font-serif text-[clamp(1rem,2vw,1.4rem)] italic text-vibrant-green/80 mt-4">
-        "교육의 질을 희석하지 않기 위해서 입니다."
-      </p>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+      <p className="text-sm text-white/40 italic mb-16">"교육의 질을 희석하지 않기 위해서입니다."</p>
 
-      <div className="flex flex-col gap-4 max-w-[700px] mx-auto mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
         {[
-          {
-            icon: '✋🏻', num: 'Point 01', title: '개인 핸들링 교정',
-            tags: ['손 크기', '자세 습관', '각도 · 압', '속도 조절'],
-            body: '모든 사람의 손과 습관은 다릅니다. 이 차이를 개인별로 1:1 교정하기 위해서는 소수 인원이 필수입니다.'
-          },
-          {
-            icon: '🎓', num: 'Point 02', title: '도제식 교육',
-            tags: ['2~4인 소수', '현장 중심'],
-            body: '한 명의 스승이 제자에게 지식이나 기술을 전수하고, 현장 중심으로 학습하는 방식입니다.'
-          },
-          {
-            icon: '👥', num: 'Point 03', title: '대모 실습',
-            tags: ['최대 4회', '원장 동석', '처음부터 끝까지 피드백'],
-            body: '대모는 최소 3~5시간이 걸립니다. 그 전 과정을 원장이 옆에서 직접 피드백합니다. 이것이 진짜 대모입니다.'
-          },
+          { num: '01', title: '개인 핸들링 교정', desc: '모든 사람의 손과 습관은 다릅니다. 개인별 1:1 교정을 위해 소수 인원이 필수입니다.' },
+          { num: '02', title: '도제식 교육', desc: '한 명의 스승이 제자에게 기술을 전수하고, 현장 중심으로 학습하는 방식입니다.' },
+          { num: '03', title: '대모 실습', desc: '최소 3~5시간 전 과정을 원장이 옆에서 직접 피드백합니다. 이것이 진짜 대모입니다.' },
         ].map((item, idx) => (
-          <div key={idx} className="border border-white/10 p-6 md:p-8 text-left flex flex-col md:flex-row gap-4 md:gap-6 items-start hover:border-vibrant-green/30 transition-colors">
-            <div className="w-12 h-12 bg-vibrant-green/10 rounded-full flex items-center justify-center text-2xl shrink-0">
-              {item.icon}
-            </div>
-            <div className="flex-1">
-              <div className="text-[0.63rem] tracking-wider text-vibrant-green font-bold mb-1 uppercase">{item.num}</div>
-              <div className="font-serif text-lg font-semibold text-white mb-2">{item.title}</div>
-              <div className="flex flex-wrap gap-1 mb-3">
-                {item.tags.map((t, i) => (
-                  <span key={i} className="text-xs bg-white/5 text-white/50 px-2.5 py-0.5">{t}</span>
-                ))}
-              </div>
-              <p className="text-sm text-white/50 leading-relaxed">{item.body}</p>
-            </div>
+          <div key={idx} className="p-8 bg-white/[0.02] border border-white/5 hover:border-white/15 transition-colors">
+            <span className="font-serif text-4xl text-white/5 block mb-6">{item.num}</span>
+            <h4 className="text-sm font-medium text-white tracking-wider mb-3">{item.title}</h4>
+            <p className="text-xs text-white/35 leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -372,63 +259,45 @@ const Difference: React.FC = () => (
 );
 
 const Curriculum: React.FC = () => (
-  <section id="curriculum" className="py-24 px-6 bg-main-darker text-center">
-    <div className="max-w-[680px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.22em] text-vibrant-green mb-5 inline-block">FIMBROW STUDIO</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">MASTER CLASS CURRICULUM</h2>
-      <p className="text-sm text-white/35 tracking-wider mt-2">창업반 / 재수강</p>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+  <section id="curriculum" className="py-24 px-8 md:px-16 bg-main-darker">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Curriculum</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">커리큘럼</h2>
 
-      <div className="flex justify-center gap-16 flex-wrap mb-10">
-        <div className="text-center">
-          <div className="font-serif text-xl font-bold text-vibrant-green">온라인 4주</div>
-          <div className="text-sm text-white/55 mt-1">사전 교육</div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-12">
+        <div className="flex items-center gap-6">
+          <span className="font-serif text-5xl text-white/10">01</span>
+          <div>
+            <h4 className="text-sm font-medium text-white tracking-wider">온라인 4주</h4>
+            <p className="text-xs text-white/35 mt-1">디자인 기초 · 결 드로잉 기초 분석</p>
+          </div>
         </div>
-        <div className="text-center">
-          <div className="font-serif text-xl font-bold text-vibrant-green">오프라인 2개월</div>
-          <div className="text-sm text-white/55 mt-1">매주 화요일 7시간 (56시간)</div>
+        <div className="flex items-center gap-6">
+          <span className="font-serif text-5xl text-white/10">02</span>
+          <div>
+            <h4 className="text-sm font-medium text-white tracking-wider">오프라인 2개월</h4>
+            <p className="text-xs text-white/35 mt-1">매주 화요일 7시간 (총 56시간)</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div className="max-w-[680px] mx-auto space-y-0.5">
-      {[
-        { badge: '온라인 4주', name: '사전 교육', dur: '수업 전 선행', items: ['디자인 기초', '결 드로잉 기초 분석'] },
-        { badge: '오프라인 2개월', name: '본 수업', dur: '매주 화요일 7시간', items: ['피부학', '색소학', '위생학', '디자인', '드로잉', '고무판 실습', '핸들링 교정', '미세한 압 조절 훈련', '엠보', '수지', '콤보', '잔흔 커버', '비대칭 교정 원리'] },
-        { badge: '대모 실습', name: '실제 모델 시술', dur: '최대 4회', items: ['실제 고객 모델 시술', '원장 처음부터 끝까지 동석 피드백'] },
-      ].map((phase, idx) => (
-        <div key={idx}>
-          <div className="flex items-center gap-4 px-5 py-4 bg-white/5 border-l-2 border-vibrant-green text-left">
-            <span className="text-[0.62rem] font-bold tracking-wider uppercase text-vibrant-green bg-vibrant-green/10 px-2.5 py-0.5 shrink-0">{phase.badge}</span>
-            <span className="text-sm text-white/80 font-medium flex-1">{phase.name}</span>
-            <span className="text-xs text-white/30 shrink-0">{phase.dur}</span>
-          </div>
-          <div className="px-5 py-4 pl-14">
-            <div className="flex flex-wrap gap-x-3 gap-y-1">
-              {phase.items.map((item, i) => (
-                <span key={i} className="text-xs text-white/50 flex items-center gap-1">
-                  <span className="text-vibrant-green/30">—</span> {item}
-                </span>
-              ))}
-            </div>
-          </div>
+      <div className="border-t border-white/10 pt-8">
+        <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mb-6">본 수업 커리큘럼</p>
+        <div className="flex flex-wrap gap-2">
+          {['피부학', '색소학', '위생학', '디자인', '드로잉', '고무판 실습', '핸들링 교정', '미세한 압 조절 훈련', '엠보', '수지', '콤보', '잔흔 커버', '비대칭 교정 원리'].map((item, i) => (
+            <span key={i} className="text-xs text-white/50 px-4 py-2 border border-white/5">{item}</span>
+          ))}
         </div>
-      ))}
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
-        <div className="bg-vibrant-green/5 border border-vibrant-green/15 p-5 text-left flex gap-3 items-start">
-          <span className="text-base shrink-0">🎯</span>
-          <div>
-            <div className="text-sm text-vibrant-green font-medium mb-1">졸업 후 추가 피드백 수업</div>
-            <div className="text-xs text-white/35 leading-relaxed">졸업 한 달 후 7시간 추가 피드백. 실제 시술 후 생긴 습관을 점검합니다.</div>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mt-12">
+        <div className="p-6 bg-white/[0.02] border border-white/5">
+          <h4 className="text-sm text-white mb-1">졸업 후 추가 피드백 수업</h4>
+          <p className="text-xs text-white/30">졸업 한 달 후 7시간 추가 피드백</p>
         </div>
-        <div className="bg-vibrant-green/5 border border-vibrant-green/15 p-5 text-left flex gap-3 items-start">
-          <span className="text-base shrink-0">♾️</span>
-          <div>
-            <div className="text-sm text-vibrant-green font-medium mb-1">졸업 후 무한 피드백</div>
-            <div className="text-xs text-white/35 leading-relaxed">졸업 이후에도 피드백은 계속됩니다. 실력은 연습과 피드백의 반복으로 만들어집니다.</div>
-          </div>
+        <div className="p-6 bg-white/[0.02] border border-white/5">
+          <h4 className="text-sm text-white mb-1">졸업 후 무한 피드백</h4>
+          <p className="text-xs text-white/30">졸업 이후에도 피드백은 계속됩니다</p>
         </div>
       </div>
     </div>
@@ -436,46 +305,38 @@ const Curriculum: React.FC = () => (
 );
 
 const Environment: React.FC = () => (
-  <section className="py-24 px-6 bg-main-dark text-center">
-    <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Class Environment</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">교육 환경</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-      <div className="grid grid-cols-3 gap-4 max-w-[900px] mx-auto mt-10">
-        <div className="overflow-hidden rounded-lg">
-          <img src="/teaching1.jpeg" alt="수업 분석" className="w-full aspect-[3/4] object-cover" />
-        </div>
-        <div className="overflow-hidden rounded-lg">
-          <img src="/teaching2.jpeg" alt="실습 지도" className="w-full aspect-[3/4] object-cover" />
-        </div>
-        <div className="overflow-hidden rounded-lg">
-          <img src="/teaching3.jpeg" alt="대모 실습" className="w-full aspect-[3/4] object-cover" />
-        </div>
+  <section className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Environment</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">교육 환경</h2>
+
+      <div className="grid grid-cols-3 gap-1">
+        <div className="overflow-hidden"><img src="/teaching1.jpeg" alt="" className="w-full aspect-[3/4] object-cover hover:scale-105 transition-transform duration-700" /></div>
+        <div className="overflow-hidden"><img src="/teaching2.jpeg" alt="" className="w-full aspect-[3/4] object-cover hover:scale-105 transition-transform duration-700" /></div>
+        <div className="overflow-hidden"><img src="/teaching3.jpeg" alt="" className="w-full aspect-[3/4] object-cover hover:scale-105 transition-transform duration-700" /></div>
       </div>
     </div>
   </section>
 );
 
 const Materials: React.FC = () => (
-  <section className="py-24 px-6 bg-main-darker text-center">
-    <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Included Materials</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">수강 시 제공되는 자료</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+  <section className="py-24 px-8 md:px-16 bg-main-darker">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Included</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">제공 자료</h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-[740px] mx-auto mt-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-1">
         {[
-          { icon: '📖', name: '이론북', note: '280페이지', highlight: false },
-          { icon: '✏️', name: '드로잉북', note: '131페이지', highlight: false },
-          { icon: '🪡', name: '실제 사용 니들', note: '핌브로우 현장 사용', highlight: false },
-          { icon: '🎨', name: '기초 색소 · 기본 재료', note: '수업 필요 재료 일체', highlight: false },
-          { icon: '🎯', name: '졸업 후 추가 피드백 수업', note: '졸업 한 달 후 7시간', highlight: false },
-          { icon: '♾️', name: '평생 무한 피드백', note: '졸업 후에도 계속됩니다', highlight: true },
+          { name: '이론북', note: '280페이지' },
+          { name: '드로잉북', note: '131페이지' },
+          { name: '실제 사용 니들', note: '현장 동일' },
+          { name: '기초 색소 · 재료', note: '수업 필요 재료 일체' },
+          { name: '졸업 후 피드백 수업', note: '졸업 한 달 후 7시간' },
+          { name: '평생 무한 피드백', note: '졸업 후에도 계속' },
         ].map((mat, idx) => (
-          <div key={idx} className={`border p-6 text-center transition-colors hover:border-vibrant-green/50 ${mat.highlight ? 'border-vibrant-green bg-vibrant-green/10' : 'border-white/10'}`}>
-            <span className="text-2xl mb-3 block">{mat.icon}</span>
-            <div className={`text-sm font-medium mb-1 leading-snug ${mat.highlight ? 'text-vibrant-green' : 'text-white'}`}>{mat.name}</div>
-            <div className="text-xs text-white/50">{mat.note}</div>
+          <div key={idx} className="p-6 bg-white/[0.02] border border-white/5">
+            <h4 className="text-sm text-white mb-1">{mat.name}</h4>
+            <p className="text-xs text-white/30">{mat.note}</p>
           </div>
         ))}
       </div>
@@ -483,32 +344,22 @@ const Materials: React.FC = () => (
   </section>
 );
 
-const TargetSection: React.FC = () => (
-  <section className="py-24 px-6 bg-main-dark text-center">
-    <div className="max-w-[680px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Who This Is For</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">이 수업은<br/>아무나 듣는 수업이 아닙니다.</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-      <p className="text-sm text-white/50">이런 분들께 추천합니다.</p>
+const GraduationPhotos: React.FC = () => (
+  <section className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Together</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">함께한 순간들</h2>
 
-      <ul className="max-w-[480px] mx-auto mt-8">
+      <div className="grid grid-cols-3 gap-1">
         {[
-          '기술을 제대로, 처음부터 배우고 싶은 분',
-          '잔흔 없는 시술을 하고 싶은 분',
-          '매일 연습을 지속할 의지가 있는 분',
-          '반영구를 진짜 직업으로 만들 분',
+          { src: '/together1.jpeg', label: '서울대 K뷰티 과정' },
+          { src: '/together2.jpeg', label: '수강생 단체' },
+          { src: '/together3.jpeg', label: '수료식' },
         ].map((item, idx) => (
-          <li key={idx} className="flex items-start gap-4 py-4 border-b border-white/10 first:border-t text-left text-sm text-white/80">
-            <span className="w-5 h-5 border border-vibrant-green flex items-center justify-center text-vibrant-green text-xs shrink-0 mt-0.5">✓</span>
-            {item}
-          </li>
+          <div key={idx} className="overflow-hidden">
+            <img src={item.src} alt={item.label} className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-700" />
+          </div>
         ))}
-      </ul>
-
-      <div className="max-w-[480px] mx-auto mt-8 p-5 bg-vibrant-green/5 border-l-2 border-vibrant-green text-left text-sm text-white/60 leading-relaxed">
-        저는 결과를 대신 만들어드리지 않습니다.<br/>
-        10년 넘게 쌓은 임상 노하우로 '돌아갈 필요 없는 길'을 알려드릴 뿐입니다.<br/>
-        그 길을 걷는 건 결국 <span className="text-vibrant-green font-semibold">원장님 자신</span>입니다.
       </div>
     </div>
   </section>
@@ -521,47 +372,18 @@ const reviewImages = [
   '/review10.jpeg',
 ];
 
-const GraduationPhotos: React.FC = () => (
-  <section className="py-24 px-6 bg-main-dark text-center">
-    <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Together</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">함께한 순간들</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
-        {[
-          { src: '/together1.jpeg', label: '서울대 K뷰티 과정' },
-          { src: '/together2.jpeg', label: '수강생 단체' },
-          { src: '/together3.jpeg', label: '수료식' },
-        ].map((item, idx) => (
-          <div key={idx} className="overflow-hidden rounded-lg border border-white/10">
-            <img src={item.src} alt={item.label} className="w-full aspect-[4/3] object-cover" />
-            <div className="py-3 text-center">
-              <span className="text-xs text-white/50">{item.label}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
 const ReviewSlider: React.FC = () => (
   <section className="py-24 px-0 bg-main-darker overflow-hidden">
-    <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Reviews</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">실제 수강생 후기</h2>
+    <div className="max-w-[1100px] mx-auto px-8 md:px-16 mb-16">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Reviews</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white">수강생 후기</h2>
     </div>
     <div className="relative">
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-main-darker to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-main-darker to-transparent z-10 pointer-events-none"></div>
-      <div className="animate-marquee flex gap-6 w-max">
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-main-darker to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-main-darker to-transparent z-10 pointer-events-none"></div>
+      <div className="animate-marquee flex gap-3 w-max">
         {[...reviewImages, ...reviewImages].map((src, idx) => (
-          <img
-            key={idx}
-            src={src}
-            alt={`수강 후기 ${(idx % reviewImages.length) + 1}`}
-            className="h-[400px] md:h-[500px] w-auto rounded-2xl object-cover shrink-0"
-          />
+          <img key={idx} src={src} alt="" className="h-[400px] md:h-[500px] w-auto rounded-sm object-cover shrink-0" />
         ))}
       </div>
     </div>
@@ -569,85 +391,101 @@ const ReviewSlider: React.FC = () => (
 );
 
 const Pricing: React.FC = () => (
-  <section className="py-24 px-6 bg-main-dark text-center">
-    <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Investment</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">수강료 안내</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+  <section className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Investment</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">수강료</h2>
 
-      <div className="max-w-[860px] mx-auto bg-main-darker px-6 py-5 flex flex-wrap items-center justify-center gap-2 border border-vibrant-green/20">
-        <span className="text-base font-bold text-white tracking-wider">⚑ 2026년 6월 마감</span>
-        <span className="w-1 h-1 bg-white/35 rounded-full"></span>
-        <span className="text-sm text-white/65">통합 커리큘럼 마지막 기수</span>
-        <span className="w-1 h-1 bg-white/35 rounded-full"></span>
-        <span className="text-sm text-white/65">교육지원금 100만원 마지막 적용</span>
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div className="border border-white/10 p-8">
+          <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-4">2026 Master Class</p>
+          <h3 className="font-serif text-2xl text-white mb-1">창업반 / 재수강</h3>
+          <p className="text-xs text-white/30 mb-8">엠보 · 수지 · 콤보 · 잔흔커버 · 비대칭교정 통합</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[860px] mx-auto mt-6 text-left">
-        <div className="border border-white/10">
-          <div className="bg-main-darker p-8 text-center">
-            <div className="text-[0.62rem] tracking-[0.28em] uppercase text-vibrant-green/55 mb-3">FIMBROW MASTER CLASS · 2026</div>
-            <h3 className="font-serif text-2xl font-semibold text-white mb-1">창업반 / 재수강</h3>
-            <p className="text-xs text-white/40">엠보 · 수지 · 콤보 · 잔흔커버 · 비대칭교정 통합</p>
-          </div>
-          <div className="p-6">
-            {[
-              ['수업 구성', '온라인 4주 + 본수업 2개월'],
-              ['본수업 교육 시간', '56시간 (49시간 + 졸업 후 피드백 7시간)'],
-              ['수강 인원', '최대 4인'],
-              ['대모 실습', '최대 4회'],
-              ['졸업 후 피드백', '무한 제공'],
-              ['카드 결제', '부가세 10% 별도'],
-            ].map(([label, value], idx) => (
-              <div key={idx} className="flex justify-between items-start py-3 border-b border-white/5 text-sm gap-2 last:border-b-0">
-                <span className="text-white/50 shrink-0">{label}</span>
-                <span className="text-white font-medium text-right text-xs">{value}</span>
-              </div>
-            ))}
-            <div className="bg-vibrant-green/10 p-5 mt-4 flex justify-between items-center">
-              <div className="text-base text-white font-bold">6월 한정 특별가</div>
-              <div className="text-right">
-                <div className="text-xs text-white/50 line-through">정가 700만원</div>
-                <div className="font-serif text-3xl font-bold text-vibrant-green leading-none">600만원</div>
-              </div>
+          {[
+            ['수업 구성', '온라인 4주 + 본수업 2개월'],
+            ['교육 시간', '56시간'],
+            ['수강 인원', '최대 4인'],
+            ['대모 실습', '최대 4회'],
+            ['졸업 후 피드백', '무한 제공'],
+          ].map(([label, value], idx) => (
+            <div key={idx} className="flex justify-between items-center py-3 border-b border-white/5 text-sm">
+              <span className="text-white/30">{label}</span>
+              <span className="text-white text-xs">{value}</span>
             </div>
-            <p className="text-xs text-white/40 mt-3 leading-relaxed">
-              예약금 100만원 입금으로 기수 확정 / 잔금은 수업 전날<br/>
-              카카오뱅크 3333-17-7113215 · 예금주 박연두
-            </p>
+          ))}
+
+          <div className="mt-8 flex items-baseline gap-4">
+            <span className="text-sm text-white/30 line-through">정가 700만원</span>
+            <span className="font-serif text-4xl text-white">600만원</span>
           </div>
+          <p className="text-xs text-white/20 mt-4 leading-relaxed">
+            예약금 100만원 입금으로 기수 확정<br/>
+            카카오뱅크 3333-17-7113215 · 예금주 박연두
+          </p>
         </div>
 
-        <div className="flex flex-col gap-6">
-          <div className="border border-white/10">
-            <div className="px-6 py-4 border-b border-white/10 text-xs tracking-[0.22em] uppercase text-white/50">2026년 7월부터 변경</div>
-            <div className="p-6">
-              {[
-                ['엠보 단과반 (5회)', '350만원'],
-                ['수지 단과반 (5회)', '350만원'],
-                ['엠보 + 수지 합산', '700만원'],
-              ].map(([name, price], idx) => (
-                <div key={idx} className="flex justify-between items-center py-3 border-b border-white/5 text-sm last:border-b-0">
-                  <span className="text-white/50">{name}</span>
-                  <span className="font-serif text-lg font-semibold text-white">{price}</span>
-                </div>
-              ))}
-              <div className="mt-5 p-4 bg-vibrant-green/5 border-l-2 border-vibrant-green text-xs text-white/50 leading-relaxed">
-                6월까지는 통합 커리큘럼을 600만원에 수강하실 수 있습니다. 교육지원금 100만원 적용도 6월이 마지막입니다.
+        <div>
+          <div className="border border-white/10 p-8 mb-6">
+            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-white/30 mb-6">2026년 7월부터 변경</p>
+            {[
+              ['엠보 단과반 (5회)', '350만원'],
+              ['수지 단과반 (5회)', '350만원'],
+              ['엠보 + 수지 합산', '700만원'],
+            ].map(([name, price], idx) => (
+              <div key={idx} className="flex justify-between items-center py-3 border-b border-white/5 text-sm">
+                <span className="text-white/40">{name}</span>
+                <span className="font-serif text-lg text-white">{price}</span>
               </div>
-            </div>
+            ))}
+            <p className="text-xs text-white/20 mt-6 leading-relaxed">
+              6월까지는 통합 커리큘럼을 600만원에 수강하실 수 있습니다.
+            </p>
           </div>
-          <div className="border border-white/10 p-5 text-center">
-            <p className="text-sm text-white/50 leading-relaxed mb-4">선착순 입금 마감으로 운영됩니다.<br/>예약금 100만원 입금 후 카카오톡으로 꼭 알려주세요.</p>
-            <a href="#application" className="inline-block px-11 py-4 bg-vibrant-green text-main-dark font-bold text-sm tracking-wider hover:opacity-80 transition-opacity">
-              지금 상담 신청하기
-            </a>
-          </div>
+          <a href="#application" className="block w-full py-5 bg-white text-main-dark text-center text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity">
+            Apply Now
+          </a>
         </div>
       </div>
     </div>
   </section>
 );
+
+const CourseFAQ: React.FC = () => {
+  const [open, setOpen] = useState<number | null>(null);
+  const faqs = [
+    { q: '반영구 경험이 전혀 없어도 수강할 수 있나요?', a: '네, 가능합니다. 완전 입문자도 수강 가능하도록 기초부터 체계적으로 교육합니다. 온라인 사전 교육 4주를 통해 기본기를 먼저 다진 후 본 수업에 들어갑니다.' },
+    { q: '수업 일정은 어떻게 되나요?', a: '온라인 4주 사전 교육 후, 오프라인 본 수업은 매주 화요일 7시간씩 2개월간 진행됩니다. 총 56시간의 교육과 최대 4회의 대모 실습이 포함됩니다.' },
+    { q: '수강 후 바로 창업이 가능한가요?', a: '졸업 후 대모 실습과 피드백 수업을 통해 실전 감각을 충분히 익힌 뒤 창업하시는 것을 권장합니다. 졸업 후에도 무한 피드백을 제공하므로 안심하고 시작하실 수 있습니다.' },
+    { q: '수강료 분할 납부가 가능한가요?', a: '예약금 100만원 입금으로 기수를 확정하고, 잔금은 수업 전날까지 납부하시면 됩니다. 카드 결제 시 부가세 10%가 별도 적용됩니다.' },
+    { q: '졸업 후 피드백은 어떻게 진행되나요?', a: '졸업 한 달 후 7시간 추가 피드백 수업이 포함되어 있으며, 이후에도 평생 무한 피드백을 제공합니다. 카카오톡이나 방문을 통해 언제든 피드백을 받으실 수 있습니다.' },
+    { q: '중도 취소 및 환불이 가능한가요?', a: '영상 및 자료가 사전 제공되므로, 수업 시작 후 중도 취소 시 환불이 어렵습니다. 수강 의지가 확실한 분만 신청해 주시기 바랍니다.' },
+  ];
+  return (
+    <section className="py-24 px-8 md:px-16 bg-main-darker">
+      <div className="max-w-[800px] mx-auto">
+        <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">FAQ</p>
+        <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">자주 묻는 질문</h2>
+        <div>
+          {faqs.map((faq, idx) => (
+            <div key={idx} className="border-b border-white/5">
+              <button
+                onClick={() => setOpen(open === idx ? null : idx)}
+                className="w-full flex justify-between items-center py-6 text-left cursor-pointer"
+              >
+                <span className="text-sm text-white/70">{faq.q}</span>
+                <span className="text-white/30 text-xl shrink-0 ml-4">{open === idx ? '−' : '+'}</span>
+              </button>
+              {open === idx && (
+                <p className="text-xs text-white/35 leading-relaxed pb-6">{faq.a}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const ApplicationForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -655,117 +493,103 @@ const ApplicationForm: React.FC = () => {
     alert('신청서가 접수되었습니다.\n순차적으로 카카오톡으로 상담을 안내드리겠습니다.\n감사합니다.');
   };
 
+  const inputClass = "w-full px-4 py-3 bg-transparent border border-white/10 text-sm text-white outline-none focus:border-white/30 transition-colors placeholder:text-white/15";
+
   return (
-    <section id="application" className="py-24 px-6 bg-main-darker text-center">
-      <div className="max-w-[680px] mx-auto mb-10">
-        <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Apply</span>
-        <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">수강 상담 신청</h2>
-        <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-        <p className="text-sm text-white/50">작성해주신 분들께 순차적으로 상담을 안내드립니다.</p>
-      </div>
+    <section id="application" className="py-24 px-8 md:px-16 bg-main-darker">
+      <div className="max-w-[640px] mx-auto">
+        <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Apply</p>
+        <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-4">수강 상담 신청</h2>
+        <p className="text-sm text-white/30 mb-16">작성해주신 분들께 순차적으로 상담을 안내드립니다.</p>
 
-      <form onSubmit={handleSubmit} className="max-w-[640px] mx-auto bg-main-dark border border-white/10 text-left">
-        <div className="px-8 py-6 border-b border-white/10">
-          <h3 className="font-serif text-xl font-semibold text-white">반영구 교육 신청서</h3>
-          <p className="text-sm text-white/50 mt-1">안녕하세요. 교육 신청 전 간단한 정보를 작성해주세요.</p>
-        </div>
-
-        <div className="p-8 space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-xs font-semibold tracking-wider uppercase text-white mb-2">성함<span className="text-vibrant-green ml-0.5">*</span></label>
-            <input type="text" required placeholder="이름을 입력해 주세요" className="w-full px-3.5 py-2.5 bg-main-darker border border-white/10 text-sm text-white outline-none focus:border-vibrant-green transition-colors placeholder:text-white/25" />
+            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-2">성함 *</label>
+            <input type="text" required placeholder="이름을 입력해 주세요" className={inputClass} />
+          </div>
+          <div>
+            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-2">연락처 *</label>
+            <input type="tel" required placeholder="010-0000-0000" className={inputClass} />
+          </div>
+
+          <div className="h-px bg-white/5"></div>
+
+          <div>
+            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-3">현재 하고 있는 일 *</label>
+            {['직장인', '미용업 종사', '반영구 시술자', '창업 준비 중', '기타'].map((opt, i) => (
+              <label key={i} className="flex items-center gap-3 text-sm text-white/50 py-1.5 cursor-pointer">
+                <input type="radio" name="job" className="accent-white w-3 h-3" /> {opt}
+              </label>
+            ))}
           </div>
 
           <div>
-            <label className="block text-xs font-semibold tracking-wider uppercase text-white mb-2">연락처<span className="text-vibrant-green ml-0.5">*</span></label>
-            <input type="tel" required placeholder="010-0000-0000" className="w-full px-3.5 py-2.5 bg-main-darker border border-white/10 text-sm text-white outline-none focus:border-vibrant-green transition-colors placeholder:text-white/25" />
+            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-3">반영구 경력 *</label>
+            {['완전 입문', '교육만 들은 경험 있음', '실제 시술 경험 있음'].map((opt, i) => (
+              <label key={i} className="flex items-center gap-3 text-sm text-white/50 py-1.5 cursor-pointer">
+                <input type="radio" name="exp" className="accent-white w-3 h-3" /> {opt}
+              </label>
+            ))}
           </div>
 
-          <div className="h-px bg-white/10 my-6"></div>
+          <div className="h-px bg-white/5"></div>
 
           <div>
-            <label className="block text-xs font-semibold tracking-wider uppercase text-white mb-2">현재 하고 있는 일은 무엇인가요?<span className="text-vibrant-green ml-0.5">*</span></label>
-            <div className="flex flex-col gap-1 mt-1">
-              {['직장인', '미용업 종사', '반영구 시술자', '창업 준비 중', '기타'].map((opt, i) => (
-                <label key={i} className="flex items-center gap-2.5 text-sm text-white/60 cursor-pointer py-1">
-                  <input type="radio" name="job" className="accent-vibrant-green w-3.5 h-3.5 shrink-0" /> {opt}
-                </label>
-              ))}
-            </div>
-            <div className="ml-6 mt-2">
-              <input type="text" placeholder="기타에 해당하시면 어떤 일을 하시는지 적어주세요" className="w-full px-3.5 py-2.5 bg-main-darker border border-white/10 text-sm text-white outline-none focus:border-vibrant-green transition-colors placeholder:text-white/25" />
-            </div>
+            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-2">배우려는 이유 *</label>
+            <textarea required placeholder="자유롭게 작성해 주세요" className={`${inputClass} resize-y min-h-[88px]`} />
+          </div>
+          <div>
+            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-2">교육 후 목표 *</label>
+            <textarea required placeholder="자유롭게 작성해 주세요" className={`${inputClass} resize-y min-h-[88px]`} />
           </div>
 
-          <div>
-            <label className="block text-xs font-semibold tracking-wider uppercase text-white mb-2">반영구 경력이 있으신가요?<span className="text-vibrant-green ml-0.5">*</span></label>
-            <div className="flex flex-col gap-1 mt-1">
-              {['완전 입문 (처음 배우는 단계)', '교육만 들은 경험 있음', '실제 시술 경험 있음'].map((opt, i) => (
-                <label key={i} className="flex items-center gap-2.5 text-sm text-white/60 cursor-pointer py-1">
-                  <input type="radio" name="exp" className="accent-vibrant-green w-3.5 h-3.5 shrink-0" /> {opt}
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div className="h-px bg-white/10 my-6"></div>
+          <div className="h-px bg-white/5"></div>
 
           <div>
-            <label className="block text-xs font-semibold tracking-wider uppercase text-white mb-2">반영구 교육을 배우려는 이유는 무엇인가요?<span className="text-vibrant-green ml-0.5">*</span></label>
-            <textarea required placeholder="자유롭게 작성해 주세요" className="w-full px-3.5 py-2.5 bg-main-darker border border-white/10 text-sm text-white outline-none focus:border-vibrant-green transition-colors placeholder:text-white/25 resize-y min-h-[88px]" />
+            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-3">교육 가능 시기 *</label>
+            {['바로 가능', '1개월 이내', '3개월 이내', '아직 미정'].map((opt, i) => (
+              <label key={i} className="flex items-center gap-3 text-sm text-white/50 py-1.5 cursor-pointer">
+                <input type="radio" name="timing" className="accent-white w-3 h-3" /> {opt}
+              </label>
+            ))}
           </div>
 
           <div>
-            <label className="block text-xs font-semibold tracking-wider uppercase text-white mb-2">교육 후 목표는 무엇인가요?<span className="text-vibrant-green ml-0.5">*</span></label>
-            <textarea required placeholder="자유롭게 작성해 주세요" className="w-full px-3.5 py-2.5 bg-main-darker border border-white/10 text-sm text-white outline-none focus:border-vibrant-green transition-colors placeholder:text-white/25 resize-y min-h-[88px]" />
+            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-2">궁금한 점</label>
+            <textarea placeholder="자유롭게 남겨주세요" className={`${inputClass} resize-y min-h-[88px]`} />
           </div>
 
-          <div className="h-px bg-white/10 my-6"></div>
-
-          <div>
-            <label className="block text-xs font-semibold tracking-wider uppercase text-white mb-2">교육 가능 시기는 언제인가요?<span className="text-vibrant-green ml-0.5">*</span></label>
-            <div className="flex flex-col gap-1 mt-1">
-              {['바로 가능', '1개월 이내', '3개월 이내', '아직 미정'].map((opt, i) => (
-                <label key={i} className="flex items-center gap-2.5 text-sm text-white/60 cursor-pointer py-1">
-                  <input type="radio" name="timing" className="accent-vibrant-green w-3.5 h-3.5 shrink-0" /> {opt}
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold tracking-wider uppercase text-white mb-2">상담 가능 시간</label>
-            <input type="text" placeholder="예) 평일 오전 / 평일 오후 / 저녁 / 상관없음" className="w-full px-3.5 py-2.5 bg-main-darker border border-white/10 text-sm text-white outline-none focus:border-vibrant-green transition-colors placeholder:text-white/25" />
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold tracking-wider uppercase text-white mb-2">궁금한 점 또는 남기고 싶은 말</label>
-            <textarea placeholder="자유롭게 남겨주세요" className="w-full px-3.5 py-2.5 bg-main-darker border border-white/10 text-sm text-white outline-none focus:border-vibrant-green transition-colors placeholder:text-white/25 resize-y min-h-[88px]" />
-          </div>
-
-          <button type="submit" className="w-full py-4 bg-vibrant-green text-main-dark font-bold text-sm tracking-wider mt-6 hover:opacity-80 transition-opacity cursor-pointer">
-            신청서 제출하기
+          <button type="submit" className="w-full py-4 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity cursor-pointer mt-4">
+            Submit
           </button>
-        </div>
+        </form>
 
-        <div className="px-8 py-5 border-t border-white/10 text-xs text-white/40 leading-relaxed">
+        <p className="text-xs text-white/15 mt-8 leading-relaxed">
           ※ 교육 상담은 신청 순서대로 진행됩니다.<br/>
-          ※ 영상·자료가 선 제공되므로 수업 시작 후 중도 취소 시 환불이 어렵습니다.<br/>
           ※ 수강 의지가 확실한 분만 신청해 주시기 바랍니다.
-        </div>
-      </form>
+        </p>
+      </div>
     </section>
   );
 };
 
 const Footer: React.FC = () => (
-  <footer className="py-12 px-6 bg-main-dark border-t border-white/5 text-center">
-    <div className="font-serif text-xl tracking-[0.4em] text-vibrant-green font-semibold mb-3">FIMBROW</div>
-    <p className="text-xs text-white/25 leading-relaxed">
-      반영구 눈썹 전문 교육 &nbsp;·&nbsp; 원장 박연두<br/>
-      Instagram @fimbrow &nbsp;·&nbsp; <a href="https://naver.me/xWzYgRCz" target="_blank" rel="noopener noreferrer" className="hover:text-vibrant-green transition-colors">네이버플레이스</a><br/><br/>
-      본 페이지의 교육 내용, 이론북, 드로잉북, 영상 자료의 무단 복제 및 배포를 금합니다.
-    </p>
+  <footer className="py-16 px-8 md:px-16 bg-main-dark border-t border-white/5">
+    <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row md:justify-between gap-8">
+      <div>
+        <div className="font-serif text-2xl tracking-[0.3em] text-white font-light mb-4">FIMBROW</div>
+        <p className="text-xs text-white/20 leading-relaxed">
+          반영구 눈썹 전문 교육 · 원장 박연두
+        </p>
+      </div>
+      <div className="text-right">
+        <p className="text-xs text-white/20 leading-relaxed">
+          Instagram @fimbrow<br/>
+          <a href="https://naver.me/xWzYgRCz" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors">네이버플레이스</a><br/><br/>
+          교육 내용의 무단 복제 및 배포를 금합니다.
+        </p>
+      </div>
+    </div>
   </footer>
 );
 
@@ -774,32 +598,22 @@ export default function CoursePage() {
     <>
       <Hero />
       <Numbers />
+      <WhyThisJob />
+      <MarketGrowth />
       <Urgency />
-      <Problem />
-      <Market />
       <Philosophy />
       <InstructorSection />
-      <GomupanPractice />
+      <TechniqueSection />
       <Difference />
       <Curriculum />
       <Environment />
       <Materials />
-      <TargetSection />
       <GraduationPhotos />
       <ReviewSlider />
       <Pricing />
+      <CourseFAQ />
       <ApplicationForm />
       <Footer />
-
-      {/* Sticky Mobile Button */}
-      <div className="fixed bottom-6 left-6 right-6 z-40 md:hidden">
-        <a
-          href="#application"
-          className="w-full h-14 bg-vibrant-green text-main-dark font-black flex items-center justify-center text-sm active:scale-95 transition-transform shadow-lg"
-        >
-          수강 상담 신청하기
-        </a>
-      </div>
     </>
   );
 }

@@ -7,26 +7,26 @@ const Navbar: React.FC = () => {
   const isCourse = location.pathname === '/course';
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-main-dark/80 backdrop-blur-md border-b border-white/10 h-[60px] flex items-center px-6 md:px-12 justify-between">
-      <Link to="/" className="font-serif text-lg tracking-[0.35em] text-vibrant-green font-semibold">FIMBROW</Link>
-      <div className="flex items-center gap-6">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-main-dark/60 backdrop-blur-xl h-[70px] flex items-center px-8 md:px-16 justify-between">
+      <Link to="/" className="font-serif text-2xl tracking-[0.3em] text-white font-light">FIMBROW</Link>
+      <div className="flex items-center gap-8">
         <Link
           to="/"
-          className={`text-xs font-bold tracking-wider transition-colors ${!isCourse ? 'text-vibrant-green' : 'text-white/50 hover:text-white'}`}
+          className={`text-[0.7rem] font-medium tracking-[0.2em] uppercase transition-colors ${!isCourse ? 'text-white' : 'text-white/40 hover:text-white'}`}
         >
-          시술 안내
+          Treatment
         </Link>
         <Link
           to="/course"
-          className={`text-xs font-bold tracking-wider transition-colors ${isCourse ? 'text-vibrant-green' : 'text-white/50 hover:text-white'}`}
+          className={`text-[0.7rem] font-medium tracking-[0.2em] uppercase transition-colors ${isCourse ? 'text-white' : 'text-white/40 hover:text-white'}`}
         >
-          수강 안내
+          Course
         </Link>
         <a
           href={isCourse ? '#application' : '#booking'}
-          className="px-5 py-2 bg-vibrant-green text-main-dark text-xs font-bold tracking-wider hover:opacity-80 transition-opacity"
+          className="px-6 py-2.5 border border-white/30 text-white text-[0.65rem] font-medium tracking-[0.2em] uppercase hover:bg-white hover:text-main-dark transition-all"
         >
-          {isCourse ? '수강 상담 신청' : '시술 예약 문의'}
+          {isCourse ? 'Apply' : 'Book Now'}
         </a>
       </div>
     </nav>

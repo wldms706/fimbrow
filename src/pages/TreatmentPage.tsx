@@ -19,95 +19,79 @@ const TreatmentHero: React.FC = () => {
   }, [videoIndex]);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-[60px] px-6 overflow-hidden bg-main-dark">
+    <section className="relative min-h-screen flex flex-col items-end justify-end px-8 md:px-16 pb-20 overflow-hidden">
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         src={videos[videoIndex]}
-        autoPlay
-        muted
-        playsInline
+        autoPlay muted playsInline
         onEnded={handleVideoEnded}
       />
-      <div className="absolute inset-0 bg-black/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
 
-      <div className="relative z-10 max-w-[640px] text-center" style={{ animation: 'fadeUp .65s ease both' }}>
-        <p className="text-[0.65rem] tracking-[0.38em] uppercase text-vibrant-green/80 mb-12 flex items-center justify-center gap-3">
-          <span className="w-5 h-px bg-vibrant-green/50"></span>
-          반영구 눈썹 전문 시술
-          <span className="w-5 h-px bg-vibrant-green/50"></span>
+      <div className="absolute left-8 md:left-16 top-1/2 -translate-y-1/2 z-10" style={{ animation: 'fadeUp .8s ease both' }}>
+        <h1 className="font-serif text-[clamp(3.5rem,10vw,8rem)] font-light leading-[0.9] tracking-tight text-white">
+          FIMBROW<br/>
+          <span className="text-white/60">KOREA</span>
+        </h1>
+      </div>
+
+      <div className="relative z-10 max-w-[400px] text-right" style={{ animation: 'fadeUp .8s ease .3s both' }}>
+        <p className="text-[0.65rem] tracking-[0.3em] uppercase text-white/50 mb-4">Semi-Permanent Brow Specialist</p>
+        <p className="text-sm text-white/70 leading-relaxed mb-8">
+          12년 임상, 15,000명 시술 데이터를 바탕으로<br/>
+          잔흔 없는 자연스러운 눈썹을 만듭니다.
         </p>
-
-        <div className="mb-14" style={{ animation: 'fadeUp .65s ease .15s both' }}>
-          <p className="font-serif text-[clamp(1.1rem,2vw,1.5rem)] text-white/50 mb-4 leading-relaxed">
-            시간이 지나도 자연스러운 눈썹
-          </p>
-          <div className="w-px h-7 bg-vibrant-green/40 mx-auto mb-4"></div>
-          <h1 className="font-serif text-[clamp(2rem,4.5vw,3.6rem)] font-bold italic leading-tight">
-            <span className="text-vibrant-green">12년 임상</span>
-            <span className="text-white">이 만드는</span><br/>
-            <span className="text-white">잔흔 없는 눈썹</span>
-          </h1>
-        </div>
-
-        <div className="border-t border-white/15 pt-8 mb-10 flex flex-col items-center gap-2" style={{ animation: 'fadeUp .65s ease .3s both' }}>
-          <p className="text-sm text-white/50">누적 시술 15,000명</p>
-          <p className="text-base text-vibrant-green font-medium">엠보 · 수지 · 콤보 · 잔흔커버 · 비대칭교정</p>
-          <div className="h-4"></div>
-          <p className="font-serif text-lg tracking-[0.32em] text-white font-semibold mt-2">FIMBROW STUDIO</p>
-        </div>
-
-        <div className="flex flex-col items-center gap-3 mb-8" style={{ animation: 'fadeUp .65s ease .52s both' }}>
-          <a href="#booking" className="px-11 py-4 bg-vibrant-green text-main-dark font-bold text-sm tracking-wider hover:opacity-80 transition-opacity">
-            시술 예약 문의하기
-          </a>
-        </div>
+        <a href="#booking" className="inline-block px-8 py-3 border border-white/40 text-white text-[0.7rem] tracking-[0.2em] uppercase hover:bg-white hover:text-main-dark transition-all">
+          Book Now
+        </a>
       </div>
     </section>
   );
 };
 
 const TreatmentNumbers: React.FC = () => (
-  <section className="py-20 px-6 bg-main-dark text-center">
-    <div className="max-w-[680px] mx-auto mb-10">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-4 inline-block">Numbers</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white leading-snug">숫자로 보는 핌브로우</h2>
-    </div>
-    <div className="grid grid-cols-2 md:grid-cols-4 max-w-[900px] mx-auto border border-white/10">
-      {[
-        { val: '12년', label: '임상 경력' },
-        { val: '15,000명', label: '누적 시술' },
-        { val: '100%', label: '1:1 맞춤 상담' },
-        { val: '0건', label: '잔흔 클레임' },
-      ].map((item, idx) => (
-        <div key={idx} className="py-12 px-6 text-center border-r border-b border-white/10 last:border-r-0">
-          <div className="font-serif text-[clamp(2.2rem,4vw,3.5rem)] font-bold text-vibrant-green leading-none">{item.val}</div>
-          <div className="text-sm text-white/50 mt-2 leading-relaxed">{item.label}</div>
-        </div>
-      ))}
+  <section className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-12">Numbers</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-white/10">
+        {[
+          { val: '12', unit: '년', label: '임상 경력' },
+          { val: '15,000', unit: '명', label: '누적 시술' },
+          { val: '100', unit: '%', label: '1:1 맞춤 상담' },
+        ].map((item, idx) => (
+          <div key={idx} className="py-10 pr-8 border-b border-white/10">
+            <div className="flex items-baseline gap-1">
+              <span className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-light text-white leading-none">{item.val}</span>
+              <span className="text-sm text-white/40">{item.unit}</span>
+            </div>
+            <div className="text-xs text-white/30 mt-2 tracking-wider">{item.label}</div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 );
 
-const TreatmentProcess: React.FC = () => (
-  <section className="py-24 px-6 bg-main-dark text-center">
-    <div className="max-w-[680px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Process</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">시술 과정</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+const MenuSection: React.FC = () => (
+  <section className="py-24 px-8 md:px-16 bg-main-darker">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Services</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">시술 메뉴</h2>
 
-      <div className="space-y-0.5 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
         {[
-          { step: '01', title: '1:1 맞춤 상담', desc: '얼굴형, 피부 타입, 기존 눈썹 상태를 분석하고 원하시는 스타일을 상담합니다.' },
-          { step: '02', title: '정밀 디자인', desc: '골격, 비대칭, 얼굴 밸런스를 고려한 맞춤 디자인을 제안합니다. 충분히 상의 후 진행합니다.' },
-          { step: '03', title: '시술 진행', desc: '12년 임상 노하우로 통증을 최소화하고, 자연스러운 결과를 만들어냅니다.' },
-          { step: '04', title: '애프터케어', desc: '시술 후 관리 방법을 안내드리고, 리터치 시기까지 꼼꼼히 케어합니다.' },
+          { src: '/menu-embo.jpeg', name: '엠보', eng: 'EMBO', desc: '한 올 한 올 자연스러운 결' },
+          { src: '/menu-suji.jpeg', name: '수지', eng: 'SUJI', desc: '파우더 그라데이션 채움' },
+          { src: '/menu-combo.jpeg', name: '콤보', eng: 'COMBO', desc: '엠보 + 수지 결합' },
         ].map((item, idx) => (
-          <div key={idx} className="flex items-start gap-6 p-6 border border-white/10 text-left hover:border-vibrant-green/30 transition-colors">
-            <div className="font-serif text-2xl font-bold text-vibrant-green shrink-0">{item.step}</div>
-            <div>
-              <h4 className="font-serif text-lg font-semibold text-white mb-1">{item.title}</h4>
-              <p className="text-sm text-white/50 leading-relaxed">{item.desc}</p>
+          <div key={idx} className="group relative overflow-hidden cursor-pointer">
+            <img src={item.src} alt={item.name} className="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <div className="absolute bottom-0 left-0 p-6">
+              <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/50 mb-1">{item.eng}</p>
+              <h3 className="font-serif text-2xl font-light text-white">{item.name}</h3>
+              <p className="text-xs text-white/50 mt-1">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -116,92 +100,15 @@ const TreatmentProcess: React.FC = () => (
   </section>
 );
 
-const TreatmentPhilosophy: React.FC = () => (
-  <section className="py-24 px-6 bg-main-darker text-center">
-    <div className="max-w-[680px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Philosophy</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">핌브로우의 시술 철학</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+const PricingSection: React.FC = () => (
+  <section className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Price</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">시술 가격</h2>
 
-      <div className="max-w-[560px] mx-auto mb-12 p-10 border border-white/10 relative">
-        <span className="absolute -top-6 left-6 font-serif text-[8rem] text-white/5 leading-none">&ldquo;</span>
-        <p className="font-serif text-lg text-white/85 leading-relaxed italic relative z-10">
-          "반영구는 지우개가 없습니다.<br/>한 번의 시술이 고객의 인상을 바꿉니다.<br/>그래서 저는 한 올도 가볍게 넣지 않습니다."
-        </p>
-        <p className="text-xs text-white/30 tracking-wider mt-6">— 핌브로우 대표원장 박연두</p>
-      </div>
-
-      <div className="flex flex-col gap-4 max-w-[560px] mx-auto text-left">
-        {[
-          { title: '잔흔을 남기지 않는 시술', desc: '피부, 색소, 압, 각도의 원리를 정확히 이해한 시술만이 시간이 지나도 자연스럽습니다.' },
-          { title: '고객 얼굴에 맞는 디자인', desc: '유행이 아닌, 골격과 비대칭을 고려한 맞춤 디자인으로 자연스러운 아름다움을 만듭니다.' },
-          { title: '충분한 상담 후 시술', desc: '서두르지 않습니다. 고객이 충분히 이해하고 납득한 후에만 시술을 진행합니다.' },
-        ].map((item, idx) => (
-          <div key={idx} className="border border-white/10 p-6 hover:border-vibrant-green/30 transition-colors">
-            <h4 className="font-serif text-lg font-semibold text-vibrant-green mb-2">{item.title}</h4>
-            <p className="text-sm text-white/50 leading-relaxed">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const InstructorBrief: React.FC = () => (
-  <section className="py-24 px-6 bg-main-dark text-center">
-    <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Artist</span>
-
-      <div className="w-[min(300px,78%)] mx-auto mb-10 relative">
-        <div className="absolute -inset-4 bg-vibrant-green/5 blur-[60px] rounded-full pointer-events-none"></div>
-        <img src="/profile.jpeg" alt="핌브로우 원장" className="relative w-full object-cover aspect-[3/4] rounded-xl" />
-      </div>
-
-      <div className="font-serif text-2xl tracking-[0.25em] text-white font-semibold">FIMBROW STUDIO</div>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-
-      <ul className="max-w-[360px] mx-auto">
-        {['반영구 12년 경력', '누적 시술 15,000명', '아치 디자인 전문', '잔흔 커버 전문', '비대칭 교정 전문'].map((spec, i) => (
-          <li key={i} className="flex items-center justify-center gap-3 py-3 border-b border-white/10 text-sm text-white/60 last:border-b-0">
-            <span className="w-1 h-1 bg-vibrant-green rounded-full shrink-0"></span>
-            {spec}
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-);
-
-const TreatmentPricing: React.FC = () => (
-  <section className="py-24 px-6 bg-main-darker text-center">
-    <div className="max-w-[860px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Menu</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">시술 메뉴 & 가격</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-
-      {/* 시술 기법 사진 */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-        {[
-          { src: '/menu-embo.jpeg', name: '엠보 기법', eng: 'Embo' },
-          { src: '/menu-suji.jpeg', name: '수지 기법', eng: 'Suji' },
-          { src: '/menu-combo.jpeg', name: '콤보 기법', eng: 'Combo' },
-        ].map((item, idx) => (
-          <div key={idx} className="border border-white/10 overflow-hidden hover:border-vibrant-green/30 transition-colors">
-            <img src={item.src} alt={item.name} className="w-full aspect-[3/4] object-cover" />
-            <div className="p-4 text-center">
-              <div className="text-[0.62rem] tracking-wider text-vibrant-green/60 uppercase mb-1">{item.eng}</div>
-              <h3 className="font-serif text-lg font-semibold text-white">{item.name}</h3>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Individual Pricing */}
-      <div className="mt-10 border border-white/10">
-        <div className="bg-white/5 px-6 py-4 border-b border-white/10 text-xs tracking-[0.22em] uppercase text-white/50">
-          시술 메뉴
-        </div>
-        <div className="p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div>
+          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mb-8">개별 시술</p>
           {[
             ['올수지 (잔흔커버)', '40만원'],
             ['쓰리콤보 (슬림엠보+수지)', '35만원'],
@@ -210,176 +117,117 @@ const TreatmentPricing: React.FC = () => (
             ['아이라인 (장막)', '10만원'],
             ['속눈썹 자라나는 생장술 1회', '10만원'],
           ].map(([name, price], idx) => (
-            <div key={idx} className="flex justify-between items-center py-3 border-b border-white/5 text-sm last:border-b-0">
-              <span className="text-white/70">{name}</span>
-              <span className="font-serif text-lg font-semibold text-white">{price}</span>
+            <div key={idx} className="flex justify-between items-center py-4 border-b border-white/5">
+              <span className="text-sm text-white/60">{name}</span>
+              <span className="font-serif text-lg text-white">{price}</span>
             </div>
           ))}
-        </div>
-      </div>
 
-      {/* Add-ons */}
-      <div className="mt-6 border border-white/10">
-        <div className="bg-white/5 px-6 py-4 border-b border-white/10 text-xs tracking-[0.22em] uppercase text-white/50">
-          추가 시술
-        </div>
-        <div className="p-6">
+          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mt-12 mb-8">추가 시술</p>
           {[
             ['컬러몬스터 앰플제거 1회', '25만원'],
             ['아이라인/입술 레이저제거 1회', '15만원'],
             ['눈썹 레이저제거 1회', '8만원'],
           ].map(([name, price], idx) => (
-            <div key={idx} className="flex justify-between items-center py-3 border-b border-white/5 text-sm last:border-b-0">
-              <span className="text-white/70">{name}</span>
-              <span className="font-serif text-lg font-semibold text-white">{price}</span>
+            <div key={idx} className="flex justify-between items-center py-4 border-b border-white/5">
+              <span className="text-sm text-white/60">{name}</span>
+              <span className="font-serif text-lg text-white">{price}</span>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* 잔흔 킬러 패키지 */}
-      <h3 className="font-serif text-2xl font-semibold text-white mt-16 mb-6">잔흔 킬러 패키지</h3>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-        {/* Package I */}
-        <div className="border border-vibrant-green/30">
-          <div className="bg-vibrant-green/10 px-6 py-4 border-b border-vibrant-green/20">
-            <div className="text-[0.62rem] tracking-wider uppercase text-vibrant-green/60 mb-1">Package I</div>
-            <h3 className="font-serif text-xl font-semibold text-white">레이저로 제거 안 되는 심한 잔흔</h3>
-            <p className="text-xs text-white/40 mt-1">(-28만원)</p>
-          </div>
-          <div className="p-6">
-            <p className="text-xs text-white/50 mb-4 leading-relaxed">
-              컬러몬스터 앰플(2회) + 레이저제거 1회(3회) + 잔흔커버 올수지
-            </p>
-            <div className="flex justify-between items-center py-3 border-t border-white/5">
-              <span className="text-white/50 text-sm">정가</span>
-              <span className="text-white/50 text-sm line-through">114만원</span>
-            </div>
-            <div className="flex justify-between items-center py-3 bg-vibrant-green/10 px-4 -mx-2 rounded">
-              <span className="text-white font-bold">패키지 특가</span>
-              <span className="font-serif text-2xl font-bold text-vibrant-green">86만원</span>
-            </div>
-          </div>
+          <p className="text-xs text-white/20 mt-6">리터치 포함 / 카드 가능 VAT 별도 / 중복할인 X</p>
         </div>
 
-        {/* Package II */}
-        <div className="border border-white/10">
-          <div className="bg-white/5 px-6 py-4 border-b border-white/10">
-            <div className="text-[0.62rem] tracking-wider uppercase text-vibrant-green/60 mb-1">Package II</div>
-            <h3 className="font-serif text-xl font-semibold text-white">베이직 잔흔제거</h3>
-            <p className="text-xs text-white/40 mt-1">(-5만원)</p>
-          </div>
-          <div className="p-6">
-            <p className="text-xs text-white/50 mb-4 leading-relaxed">
-              레이저제거(3회) + 잔흔커버 올수지
-            </p>
-            <div className="flex justify-between items-center py-3 border-t border-white/5">
-              <span className="text-white/50 text-sm">정가</span>
-              <span className="text-white/50 text-sm line-through">64만원</span>
+        <div>
+          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mb-8">잔흔 킬러 패키지</p>
+
+          <div className="mb-8 p-8 border border-white/10">
+            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-3">Package I</p>
+            <h4 className="font-serif text-xl text-white mb-2">레이저로 제거 안 되는 심한 잔흔</h4>
+            <p className="text-xs text-white/40 mb-6">컬러몬스터 앰플(2회) + 레이저제거 1회(3회) + 잔흔커버 올수지</p>
+            <div className="flex items-baseline gap-4">
+              <span className="text-sm text-white/30 line-through">114만원</span>
+              <span className="font-serif text-3xl text-white">86만원</span>
             </div>
-            <div className="flex justify-between items-center py-3 bg-vibrant-green/10 px-4 -mx-2 rounded">
-              <span className="text-white font-bold">패키지 특가</span>
-              <span className="font-serif text-2xl font-bold text-vibrant-green">59만원</span>
+          </div>
+
+          <div className="p-8 border border-white/10">
+            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-3">Package II</p>
+            <h4 className="font-serif text-xl text-white mb-2">베이직 잔흔제거</h4>
+            <p className="text-xs text-white/40 mb-6">레이저제거(3회) + 잔흔커버 올수지</p>
+            <div className="flex items-baseline gap-4">
+              <span className="text-sm text-white/30 line-through">64만원</span>
+              <span className="font-serif text-3xl text-white">59만원</span>
             </div>
           </div>
         </div>
       </div>
-
-      <p className="text-xs text-white/40 mt-6 leading-relaxed">
-        ※ 리터치 포함 / 카드 가능 VAT 별도 / 중복할인 X
-      </p>
     </div>
   </section>
 );
 
 const EventSection: React.FC = () => (
-  <section className="py-24 px-6 bg-main-darker text-center">
-    <div className="max-w-[680px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Event</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">0원히 감사 EVENT</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+  <section className="py-24 px-8 md:px-16 bg-main-darker">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Event</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">0원히 감사 EVENT</h2>
 
-      <div className="space-y-4 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
         {[
-          {
-            num: 'EVENT 1',
-            title: '2인 동시예약 시',
-            benefit: '-40,000원',
-            desc: '인당 2만원, 시술 날짜가 달라도 가능합니다.',
-          },
-          {
-            num: 'EVENT 2',
-            title: '2가지 시술 시',
-            benefit: '-10,000원',
-            desc: '반영구 중 2가지 동시 시술 시',
-          },
-          {
-            num: 'EVENT 3',
-            title: '지인소개 시',
-            benefit: '+10,000p',
-            desc: '소개 당사자는 다음 시술 시 사용 가능한 포인트 적립',
-          },
+          { num: '01', title: '2인 동시예약 시', benefit: '-40,000원', desc: '인당 2만원, 시술 날짜가 달라도 가능합니다.' },
+          { num: '02', title: '2가지 시술 시', benefit: '-10,000원', desc: '반영구 중 2가지 동시 시술 시' },
+          { num: '03', title: '지인소개 시', benefit: '+10,000p', desc: '소개 당사자는 다음 시술 시 사용 가능한 포인트 적립' },
         ].map((evt, idx) => (
-          <div key={idx} className="border border-white/10 p-6 text-left flex flex-col md:flex-row md:items-center gap-4 hover:border-vibrant-green/30 transition-colors">
-            <div className="flex-1">
-              <div className="text-[0.63rem] tracking-wider text-vibrant-green font-bold mb-1 uppercase">{evt.num}</div>
-              <div className="font-serif text-lg font-semibold text-white mb-1">{evt.title}</div>
-              <p className="text-sm text-white/50">{evt.desc}</p>
-            </div>
-            <div className="font-serif text-2xl font-bold text-vibrant-green shrink-0">{evt.benefit}</div>
+          <div key={idx} className="p-8 bg-white/[0.02] border border-white/5 hover:border-white/15 transition-colors">
+            <span className="font-serif text-4xl text-white/10 block mb-6">{evt.num}</span>
+            <h4 className="font-serif text-xl text-white mb-2">{evt.title}</h4>
+            <p className="font-serif text-2xl text-accent mb-4">{evt.benefit}</p>
+            <p className="text-xs text-white/40 leading-relaxed">{evt.desc}</p>
           </div>
         ))}
       </div>
-
-      <p className="text-xs text-white/40 mt-8 leading-relaxed">
-        ※ 할인과 포인트 함께 사용 가능, 중복할인은 불가합니다.
-      </p>
+      <p className="text-xs text-white/20 mt-8">※ 할인과 포인트 함께 사용 가능, 중복할인은 불가합니다.</p>
     </div>
   </section>
 );
 
-const TreatmentBooking: React.FC = () => (
-  <section id="booking" className="py-24 px-6 bg-main-darker text-center">
-    <div className="max-w-[680px] mx-auto mb-10">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Reservation</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">시술 예약 문의</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-      <p className="text-sm text-white/50 leading-relaxed">
-        시술 전 충분한 상담을 진행합니다.<br/>
-        카카오톡으로 편하게 문의해 주세요.
-      </p>
+const TreatmentProcess: React.FC = () => (
+  <section className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Process</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">시술 과정</h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
+        {[
+          { step: '01', title: '1:1 맞춤 상담', desc: '얼굴형, 피부 타입, 기존 눈썹 상태를 분석합니다.' },
+          { step: '02', title: '정밀 디자인', desc: '골격과 비대칭을 고려한 맞춤 디자인을 제안합니다.' },
+          { step: '03', title: '시술 진행', desc: '12년 노하우로 통증을 최소화하고 자연스럽게.' },
+          { step: '04', title: '애프터케어', desc: '리터치 시기까지 꼼꼼히 케어합니다.' },
+        ].map((item, idx) => (
+          <div key={idx} className="py-8 pr-8 border-t border-white/10">
+            <span className="font-serif text-5xl text-white/5 block mb-6">{item.step}</span>
+            <h4 className="text-sm font-medium text-white tracking-wider mb-2">{item.title}</h4>
+            <p className="text-xs text-white/35 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
     </div>
+  </section>
+);
 
-    <div className="max-w-[480px] mx-auto space-y-4">
-      <a
-        href="https://pf.kakao.com/_gxmFxmG"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block w-full py-5 bg-vibrant-green text-main-dark font-bold text-sm tracking-wider hover:opacity-80 transition-opacity"
-      >
-        카카오톡으로 시술 예약 문의하기
-      </a>
-
-      <div className="border border-white/10 p-6 text-left space-y-3">
-        <div className="flex justify-between items-center text-sm">
-          <span className="text-white/50">위치</span>
-          <span className="text-white font-medium">핌브로우 스튜디오</span>
-        </div>
-        <div className="flex justify-between items-center text-sm">
-          <span className="text-white/50">상담</span>
-          <span className="text-white font-medium">카카오톡 예약제</span>
-        </div>
-        <div className="flex justify-between items-center text-sm">
-          <span className="text-white/50">소요시간</span>
-          <span className="text-white font-medium">상담 포함 약 2~3시간</span>
-        </div>
-      </div>
-
-      <div className="text-xs text-white/40 leading-relaxed pt-4">
-        ※ 모든 시술은 1:1 예약제로 진행됩니다.<br/>
-        ※ 시술 전 충분한 상담 후 진행 여부를 결정하실 수 있습니다.
-      </div>
+const PhilosophySection: React.FC = () => (
+  <section className="relative py-32 px-8 md:px-16 overflow-hidden">
+    <img src="/profile.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-black/60"></div>
+    <div className="relative z-10 max-w-[600px]">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/40 mb-6">Philosophy</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-light text-white leading-snug mb-8">
+        반영구는<br/>지우개가 없습니다.
+      </h2>
+      <p className="text-sm text-white/50 leading-relaxed mb-4">
+        한 번의 시술이 고객의 인상을 바꿉니다.<br/>
+        그래서 저는 한 올도 가볍게 넣지 않습니다.
+      </p>
+      <p className="text-xs text-white/30 tracking-wider mt-8">— 핌브로우 대표원장 박연두</p>
     </div>
   </section>
 );
@@ -397,62 +245,136 @@ const treatmentRow2 = [
 
 const TreatmentSlider: React.FC = () => (
   <section className="py-24 px-0 bg-main-darker overflow-hidden">
-    <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Portfolio</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">시술 결과</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+    <div className="max-w-[1100px] mx-auto px-8 md:px-16 mb-16">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Portfolio</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white">시술 결과</h2>
     </div>
-    <div className="relative space-y-4">
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-main-darker to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-main-darker to-transparent z-10 pointer-events-none"></div>
-      {/* Row 1 → */}
-      <div className="animate-marquee flex gap-4 w-max">
+    <div className="relative space-y-3">
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-main-darker to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-main-darker to-transparent z-10 pointer-events-none"></div>
+      <div className="animate-marquee flex gap-3 w-max">
         {[...treatmentRow1, ...treatmentRow1].map((src, idx) => (
-          <img
-            key={idx}
-            src={src}
-            alt={`시술 결과 ${(idx % treatmentRow1.length) + 1}`}
-            className="h-[280px] md:h-[360px] w-auto rounded-xl object-cover shrink-0"
-          />
+          <img key={idx} src={src} alt="" className="h-[300px] md:h-[380px] w-auto rounded-sm object-cover shrink-0" />
         ))}
       </div>
-      {/* Row 2 ← */}
-      <div className="animate-marquee-reverse flex gap-4 w-max">
+      <div className="animate-marquee-reverse flex gap-3 w-max">
         {[...treatmentRow2, ...treatmentRow2].map((src, idx) => (
-          <img
-            key={idx}
-            src={src}
-            alt={`시술 결과 ${(idx % treatmentRow2.length) + 11}`}
-            className="h-[280px] md:h-[360px] w-auto rounded-xl object-cover shrink-0"
-          />
+          <img key={idx} src={src} alt="" className="h-[300px] md:h-[380px] w-auto rounded-sm object-cover shrink-0" />
         ))}
       </div>
     </div>
   </section>
 );
 
+const TreatmentBooking: React.FC = () => (
+  <section id="booking" className="py-24 px-8 md:px-16 bg-main-dark">
+    <div className="max-w-[1100px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div>
+          <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Reservation</p>
+          <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-6">시술 예약</h2>
+          <p className="text-sm text-white/40 leading-relaxed mb-10">
+            시술 전 충분한 상담을 진행합니다.<br/>
+            카카오톡으로 편하게 문의해 주세요.
+          </p>
+          <a
+            href="https://pf.kakao.com/_gxmFxmG"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-10 py-4 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity"
+          >
+            카카오톡 예약 문의
+          </a>
+        </div>
+        <div className="space-y-0">
+          {[
+            ['위치', '핌브로우 스튜디오'],
+            ['상담', '카카오톡 예약제'],
+            ['소요시간', '상담 포함 약 2~3시간'],
+          ].map(([label, value], idx) => (
+            <div key={idx} className="flex justify-between items-center py-5 border-b border-white/5">
+              <span className="text-xs text-white/30 tracking-wider">{label}</span>
+              <span className="text-sm text-white">{value}</span>
+            </div>
+          ))}
+          <p className="text-xs text-white/20 pt-6 leading-relaxed">
+            ※ 모든 시술은 1:1 예약제로 진행됩니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const TreatmentFAQ: React.FC = () => {
+  const [open, setOpen] = useState<number | null>(null);
+  const faqs = [
+    { q: '시술 시간은 얼마나 걸리나요?', a: '상담 포함 약 2~3시간 정도 소요됩니다. 충분한 상담 후 디자인을 결정하고, 시술을 진행합니다.' },
+    { q: '통증이 심한가요?', a: '시술 전 통증완화 크림을 도포하기 때문에 대부분의 고객분들이 큰 통증 없이 편안하게 시술 받으십니다.' },
+    { q: '유지 기간은 어느 정도인가요?', a: '개인 피부 타입에 따라 다르지만, 보통 1~2년 정도 유지됩니다. 리터치를 통해 더 오래 유지할 수 있습니다.' },
+    { q: '리터치는 언제 하나요?', a: '첫 시술 후 약 4~6주 뒤에 리터치를 진행합니다. 리터치는 시술 가격에 포함되어 있습니다.' },
+    { q: '시술 후 세안은 언제부터 가능한가요?', a: '시술 부위를 제외한 세안은 당일부터 가능합니다. 시술 부위는 약 7~10일 후부터 세안이 가능하며, 자세한 관리 방법은 시술 후 안내드립니다.' },
+    { q: '잔흔이 있는데 커버가 가능한가요?', a: '네, 가능합니다. 잔흔의 상태에 따라 레이저 제거 후 커버 시술을 진행하거나, 바로 커버가 가능한 경우도 있습니다. 상담을 통해 최적의 방법을 안내드립니다.' },
+  ];
+  return (
+    <section className="py-24 px-8 md:px-16 bg-main-darker">
+      <div className="max-w-[800px] mx-auto">
+        <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">FAQ</p>
+        <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">자주 묻는 질문</h2>
+        <div>
+          {faqs.map((faq, idx) => (
+            <div key={idx} className="border-b border-white/5">
+              <button
+                onClick={() => setOpen(open === idx ? null : idx)}
+                className="w-full flex justify-between items-center py-6 text-left cursor-pointer"
+              >
+                <span className="text-sm text-white/70">{faq.q}</span>
+                <span className="text-white/30 text-xl shrink-0 ml-4">{open === idx ? '−' : '+'}</span>
+              </button>
+              {open === idx && (
+                <p className="text-xs text-white/35 leading-relaxed pb-6">{faq.a}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const CourseBanner: React.FC = () => (
-  <section className="py-16 px-6 bg-main-dark text-center border-t border-white/10">
-    <div className="max-w-[640px] mx-auto">
-      <p className="text-sm text-white/50 mb-3">반영구를 직접 배우고 싶다면</p>
-      <h3 className="font-serif text-2xl font-semibold text-white mb-6">FIMBROW MASTER CLASS</h3>
+  <section className="py-20 px-8 md:px-16 bg-main-darker border-t border-white/5">
+    <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+      <div>
+        <p className="text-xs text-white/30 mb-2">반영구를 직접 배우고 싶다면</p>
+        <h3 className="font-serif text-3xl font-light text-white">FIMBROW MASTER CLASS</h3>
+      </div>
       <Link
         to="/course"
-        className="inline-block px-11 py-4 border border-vibrant-green text-vibrant-green font-bold text-sm tracking-wider hover:bg-vibrant-green hover:text-main-dark transition-all"
+        className="inline-block px-10 py-4 border border-white/30 text-white text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:bg-white hover:text-main-dark transition-all"
       >
-        수강 안내 페이지 보기
+        View Course
       </Link>
     </div>
   </section>
 );
 
-const TreatmentFooter: React.FC = () => (
-  <footer className="py-12 px-6 bg-main-dark border-t border-white/5 text-center">
-    <div className="font-serif text-xl tracking-[0.4em] text-vibrant-green font-semibold mb-3">FIMBROW</div>
-    <p className="text-xs text-white/25 leading-relaxed">
-      반영구 눈썹 전문 시술 &nbsp;·&nbsp; 원장 박연두<br/>
-      Instagram @fimbrow &nbsp;·&nbsp; <a href="https://naver.me/xWzYgRCz" target="_blank" rel="noopener noreferrer" className="hover:text-vibrant-green transition-colors">네이버플레이스</a>
-    </p>
+const Footer: React.FC = () => (
+  <footer className="py-16 px-8 md:px-16 bg-main-dark border-t border-white/5">
+    <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row md:justify-between gap-8">
+      <div>
+        <div className="font-serif text-2xl tracking-[0.3em] text-white font-light mb-4">FIMBROW</div>
+        <p className="text-xs text-white/20 leading-relaxed">
+          반영구 눈썹 전문 시술 · 원장 박연두
+        </p>
+      </div>
+      <div className="text-right">
+        <p className="text-xs text-white/20 leading-relaxed">
+          Instagram @fimbrow<br/>
+          <a href="https://naver.me/xWzYgRCz" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors">네이버플레이스</a>
+        </p>
+      </div>
+    </div>
   </footer>
 );
 
@@ -461,15 +383,16 @@ export default function TreatmentPage() {
     <>
       <TreatmentHero />
       <TreatmentNumbers />
-      <TreatmentPricing />
+      <MenuSection />
+      <PricingSection />
       <TreatmentProcess />
-      <TreatmentPhilosophy />
-      <InstructorBrief />
+      <PhilosophySection />
       <TreatmentSlider />
       <EventSection />
       <TreatmentBooking />
+      <TreatmentFAQ />
       <CourseBanner />
-      <TreatmentFooter />
+      <Footer />
     </>
   );
 }
