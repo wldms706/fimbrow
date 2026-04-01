@@ -89,90 +89,6 @@ const TreatmentNumbers: React.FC = () => (
   </section>
 );
 
-const Services: React.FC = () => (
-  <section className="py-24 px-6 bg-main-darker text-center">
-    <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Services</span>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">시술 메뉴</h2>
-      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-        {[
-          {
-            name: '엠보 눈썹',
-            eng: 'Embo Brow',
-            desc: '한 올 한 올 자연스러운 결을 표현하는 기법. 눈썹이 거의 없거나 자연스러운 채움을 원하는 분께 추천합니다.',
-            tags: ['자연스러운 결', '빈 곳 채움', '남녀 모두 가능'],
-          },
-          {
-            name: '수지 눈썹',
-            eng: 'Suji Brow',
-            desc: '파우더처럼 부드러운 그라데이션 효과. 화장한 듯 자연스러운 눈썹을 원하는 분께 추천합니다.',
-            tags: ['파우더 효과', '그라데이션', '또렷한 인상'],
-          },
-          {
-            name: '콤보 눈썹',
-            eng: 'Combo Brow',
-            desc: '엠보의 자연스러운 결 + 수지의 채움감을 결합. 풍성하면서도 자연스러운 눈썹을 원하는 분께 추천합니다.',
-            tags: ['엠보 + 수지', '풍성한 느낌', '가장 인기'],
-          },
-        ].map((service, idx) => (
-          <div key={idx} className="border border-white/10 text-left hover:border-vibrant-green/30 transition-colors">
-            <div className="aspect-[4/3] bg-white/5 flex flex-col items-center justify-center gap-2">
-              <span className="text-3xl opacity-20">🖼</span>
-              <span className="text-[0.65rem] tracking-wider uppercase text-white/30">시술 사진</span>
-            </div>
-            <div className="p-6">
-              <div className="text-[0.62rem] tracking-wider text-vibrant-green/60 uppercase mb-1">{service.eng}</div>
-              <h3 className="font-serif text-xl font-semibold text-white mb-3">{service.name}</h3>
-              <p className="text-sm text-white/50 leading-relaxed mb-4">{service.desc}</p>
-              <div className="flex flex-wrap gap-1">
-                {service.tags.map((tag, i) => (
-                  <span key={i} className="text-xs bg-vibrant-green/10 text-vibrant-green/80 px-2.5 py-0.5">{tag}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        {[
-          {
-            name: '잔흔 커버',
-            eng: 'Scar Cover',
-            desc: '이전 시술의 잔흔, 번짐, 변색을 자연스럽게 커버합니다. 12년 임상 데이터를 기반으로 피부 상태에 맞는 최적의 방법을 적용합니다.',
-            tags: ['잔흔 교정', '색 보정', '자연스러운 복원'],
-          },
-          {
-            name: '비대칭 교정',
-            eng: 'Asymmetry Correction',
-            desc: '얼굴 비대칭, 눈썹 좌우 불균형을 정밀하게 분석하고 교정합니다. 단순 대칭이 아닌, 얼굴 전체 밸런스를 고려한 디자인을 제공합니다.',
-            tags: ['정밀 분석', '맞춤 디자인', '밸런스 교정'],
-          },
-        ].map((service, idx) => (
-          <div key={idx} className="border border-white/10 text-left hover:border-vibrant-green/30 transition-colors">
-            <div className="aspect-[3/1] bg-white/5 flex flex-col items-center justify-center gap-2">
-              <span className="text-2xl opacity-20">🖼</span>
-              <span className="text-[0.65rem] tracking-wider uppercase text-white/30">시술 사진</span>
-            </div>
-            <div className="p-6">
-              <div className="text-[0.62rem] tracking-wider text-vibrant-green/60 uppercase mb-1">{service.eng}</div>
-              <h3 className="font-serif text-xl font-semibold text-white mb-3">{service.name}</h3>
-              <p className="text-sm text-white/50 leading-relaxed mb-4">{service.desc}</p>
-              <div className="flex flex-wrap gap-1">
-                {service.tags.map((tag, i) => (
-                  <span key={i} className="text-xs bg-vibrant-green/10 text-vibrant-green/80 px-2.5 py-0.5">{tag}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
 const TreatmentProcess: React.FC = () => (
   <section className="py-24 px-6 bg-main-dark text-center">
     <div className="max-w-[680px] mx-auto">
@@ -252,6 +168,173 @@ const InstructorBrief: React.FC = () => (
           </li>
         ))}
       </ul>
+    </div>
+  </section>
+);
+
+const TreatmentPricing: React.FC = () => (
+  <section className="py-24 px-6 bg-main-darker text-center">
+    <div className="max-w-[860px] mx-auto">
+      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Menu</span>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">시술 메뉴 & 가격</h2>
+      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+
+      {/* 시술 기법 사진 */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        {[
+          { src: '/menu-embo.jpeg', name: '엠보 기법', eng: 'Embo' },
+          { src: '/menu-suji.jpeg', name: '수지 기법', eng: 'Suji' },
+          { src: '/menu-combo.jpeg', name: '콤보 기법', eng: 'Combo' },
+        ].map((item, idx) => (
+          <div key={idx} className="border border-white/10 overflow-hidden hover:border-vibrant-green/30 transition-colors">
+            <img src={item.src} alt={item.name} className="w-full aspect-[3/4] object-cover" />
+            <div className="p-4 text-center">
+              <div className="text-[0.62rem] tracking-wider text-vibrant-green/60 uppercase mb-1">{item.eng}</div>
+              <h3 className="font-serif text-lg font-semibold text-white">{item.name}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Individual Pricing */}
+      <div className="mt-10 border border-white/10">
+        <div className="bg-white/5 px-6 py-4 border-b border-white/10 text-xs tracking-[0.22em] uppercase text-white/50">
+          시술 메뉴
+        </div>
+        <div className="p-6">
+          {[
+            ['올수지 (잔흔커버)', '40만원'],
+            ['쓰리콤보 (슬림엠보+수지)', '35만원'],
+            ['입술 (거뭇한 입술 추천)', '45만원'],
+            ['아이라인 (꼬리포함)', '20만원'],
+            ['아이라인 (장막)', '10만원'],
+            ['속눈썹 자라나는 생장술 1회', '10만원'],
+          ].map(([name, price], idx) => (
+            <div key={idx} className="flex justify-between items-center py-3 border-b border-white/5 text-sm last:border-b-0">
+              <span className="text-white/70">{name}</span>
+              <span className="font-serif text-lg font-semibold text-white">{price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Add-ons */}
+      <div className="mt-6 border border-white/10">
+        <div className="bg-white/5 px-6 py-4 border-b border-white/10 text-xs tracking-[0.22em] uppercase text-white/50">
+          추가 시술
+        </div>
+        <div className="p-6">
+          {[
+            ['컬러몬스터 앰플제거 1회', '25만원'],
+            ['아이라인/입술 레이저제거 1회', '15만원'],
+            ['눈썹 레이저제거 1회', '8만원'],
+          ].map(([name, price], idx) => (
+            <div key={idx} className="flex justify-between items-center py-3 border-b border-white/5 text-sm last:border-b-0">
+              <span className="text-white/70">{name}</span>
+              <span className="font-serif text-lg font-semibold text-white">{price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 잔흔 킬러 패키지 */}
+      <h3 className="font-serif text-2xl font-semibold text-white mt-16 mb-6">잔흔 킬러 패키지</h3>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        {/* Package I */}
+        <div className="border border-vibrant-green/30">
+          <div className="bg-vibrant-green/10 px-6 py-4 border-b border-vibrant-green/20">
+            <div className="text-[0.62rem] tracking-wider uppercase text-vibrant-green/60 mb-1">Package I</div>
+            <h3 className="font-serif text-xl font-semibold text-white">레이저로 제거 안 되는 심한 잔흔</h3>
+            <p className="text-xs text-white/40 mt-1">(-28만원)</p>
+          </div>
+          <div className="p-6">
+            <p className="text-xs text-white/50 mb-4 leading-relaxed">
+              컬러몬스터 앰플(2회) + 레이저제거 1회(3회) + 잔흔커버 올수지
+            </p>
+            <div className="flex justify-between items-center py-3 border-t border-white/5">
+              <span className="text-white/50 text-sm">정가</span>
+              <span className="text-white/50 text-sm line-through">114만원</span>
+            </div>
+            <div className="flex justify-between items-center py-3 bg-vibrant-green/10 px-4 -mx-2 rounded">
+              <span className="text-white font-bold">패키지 특가</span>
+              <span className="font-serif text-2xl font-bold text-vibrant-green">86만원</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Package II */}
+        <div className="border border-white/10">
+          <div className="bg-white/5 px-6 py-4 border-b border-white/10">
+            <div className="text-[0.62rem] tracking-wider uppercase text-vibrant-green/60 mb-1">Package II</div>
+            <h3 className="font-serif text-xl font-semibold text-white">베이직 잔흔제거</h3>
+            <p className="text-xs text-white/40 mt-1">(-5만원)</p>
+          </div>
+          <div className="p-6">
+            <p className="text-xs text-white/50 mb-4 leading-relaxed">
+              레이저제거(3회) + 잔흔커버 올수지
+            </p>
+            <div className="flex justify-between items-center py-3 border-t border-white/5">
+              <span className="text-white/50 text-sm">정가</span>
+              <span className="text-white/50 text-sm line-through">64만원</span>
+            </div>
+            <div className="flex justify-between items-center py-3 bg-vibrant-green/10 px-4 -mx-2 rounded">
+              <span className="text-white font-bold">패키지 특가</span>
+              <span className="font-serif text-2xl font-bold text-vibrant-green">59만원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p className="text-xs text-white/40 mt-6 leading-relaxed">
+        ※ 리터치 포함 / 카드 가능 VAT 별도 / 중복할인 X
+      </p>
+    </div>
+  </section>
+);
+
+const EventSection: React.FC = () => (
+  <section className="py-24 px-6 bg-main-darker text-center">
+    <div className="max-w-[680px] mx-auto">
+      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Event</span>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">0원히 감사 EVENT</h2>
+      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+
+      <div className="space-y-4 mt-10">
+        {[
+          {
+            num: 'EVENT 1',
+            title: '2인 동시예약 시',
+            benefit: '-40,000원',
+            desc: '인당 2만원, 시술 날짜가 달라도 가능합니다.',
+          },
+          {
+            num: 'EVENT 2',
+            title: '2가지 시술 시',
+            benefit: '-10,000원',
+            desc: '반영구 중 2가지 동시 시술 시',
+          },
+          {
+            num: 'EVENT 3',
+            title: '지인소개 시',
+            benefit: '+10,000p',
+            desc: '소개 당사자는 다음 시술 시 사용 가능한 포인트 적립',
+          },
+        ].map((evt, idx) => (
+          <div key={idx} className="border border-white/10 p-6 text-left flex flex-col md:flex-row md:items-center gap-4 hover:border-vibrant-green/30 transition-colors">
+            <div className="flex-1">
+              <div className="text-[0.63rem] tracking-wider text-vibrant-green font-bold mb-1 uppercase">{evt.num}</div>
+              <div className="font-serif text-lg font-semibold text-white mb-1">{evt.title}</div>
+              <p className="text-sm text-white/50">{evt.desc}</p>
+            </div>
+            <div className="font-serif text-2xl font-bold text-vibrant-green shrink-0">{evt.benefit}</div>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-xs text-white/40 mt-8 leading-relaxed">
+        ※ 할인과 포인트 함께 사용 가능, 중복할인은 불가합니다.
+      </p>
     </div>
   </section>
 );
@@ -368,7 +451,7 @@ const TreatmentFooter: React.FC = () => (
     <div className="font-serif text-xl tracking-[0.4em] text-vibrant-green font-semibold mb-3">FIMBROW</div>
     <p className="text-xs text-white/25 leading-relaxed">
       반영구 눈썹 전문 시술 &nbsp;·&nbsp; 원장 박연두<br/>
-      Instagram @fimbrow &nbsp;·&nbsp; blog.naver.com/fimbrow
+      Instagram @fimbrow &nbsp;·&nbsp; <a href="https://naver.me/xWzYgRCz" target="_blank" rel="noopener noreferrer" className="hover:text-vibrant-green transition-colors">네이버플레이스</a>
     </p>
   </footer>
 );
@@ -378,11 +461,12 @@ export default function TreatmentPage() {
     <>
       <TreatmentHero />
       <TreatmentNumbers />
-      <Services />
+      <TreatmentPricing />
       <TreatmentProcess />
       <TreatmentPhilosophy />
       <InstructorBrief />
       <TreatmentSlider />
+      <EventSection />
       <TreatmentBooking />
       <CourseBanner />
       <TreatmentFooter />

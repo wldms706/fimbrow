@@ -125,41 +125,34 @@ const Urgency: React.FC = () => (
 const Problem: React.FC = () => (
   <section className="py-24 px-6 bg-main-darker text-center">
     <div className="max-w-[680px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">The Problem</span>
+      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Why This Job</span>
       <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white leading-snug">
-        왜 많은 반영구 시술이<br/>시간이 지나면 잔흔이 될까요?
+        내 시간을 내가 정하고,<br/>내 수입을 내가 만드는 삶
       </h2>
       <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-      <p className="text-white/50 leading-relaxed">반영구 시장에는 수많은 기술이 있습니다.</p>
-
-      <p className="text-[0.68rem] tracking-[0.22em] uppercase text-white/40 font-semibold mt-7 mb-2">기술 종류</p>
-      <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 max-w-[440px] mx-auto">
-        {['엠보', '수지', '콤보', '페더링', '옴브레'].map(t => (
-          <span key={t} className="font-serif text-sm italic text-white/50">{t}</span>
-        ))}
-      </div>
-
-      <div className="inline-block mt-6 px-8 py-5 bg-vibrant-green/10 border-l-[3px] border-vibrant-green max-w-[480px] text-base text-white/70 leading-relaxed">
-        핌브로우 마스터반은 이 중에서<br/>
-        <strong className="text-vibrant-green font-bold text-lg">엠보 · 수지 · 콤보</strong>를<br/>
-        전문적으로, 처음부터 제대로 가르칩니다.
-      </div>
+      <p className="text-white/50 leading-relaxed">출퇴근도, 상사도, 정해진 월급도 없습니다.</p>
     </div>
 
     <div className="max-w-[520px] mx-auto mt-10 p-8 bg-main-dark text-center">
-      <p className="text-sm text-white/40 mb-5">하지만 기술의 종류보다 중요한 것은</p>
+      <p className="text-sm text-white/40 mb-5">반영구 시술자가 가질 수 있는 것</p>
       <div className="flex flex-wrap justify-center gap-1 mb-5">
-        {['피부 이해', '색소 이해', '도구 이해', '압 · 각도 조절', '디자인 해석'].map(t => (
+        {['자유로운 시간', '장소의 자유', '높은 수익성', '평생 기술', '나만의 브랜드'].map(t => (
           <span key={t} className="text-xs text-white/80 border border-white/20 px-3 py-1 whitespace-nowrap">{t}</span>
         ))}
       </div>
-      <p className="text-sm text-white/40 leading-relaxed">이 기본이 빠지면<br/>결국 고객 피부에는 흔적이 남습니다.</p>
+      <p className="text-sm text-white/40 leading-relaxed">하루 2~3건 시술로도<br/>충분한 수입을 만들 수 있는 직업입니다.</p>
+    </div>
+
+    <div className="inline-block mt-8 px-8 py-5 bg-vibrant-green/10 border-l-[3px] border-vibrant-green max-w-[480px] text-base text-white/70 leading-relaxed">
+      아이를 키우면서도, 혼자서도, 어디서든.<br/>
+      <strong className="text-vibrant-green font-bold text-lg">내 손 하나로 만드는 자유로운 삶.</strong><br/>
+      그 시작이 반영구입니다.
     </div>
 
     <div className="max-w-[680px] mx-auto mt-10 text-center">
       <p className="font-serif text-[clamp(1.4rem,3vw,2.2rem)] font-semibold italic text-white leading-relaxed">
-        <span className="bg-gradient-to-b from-transparent from-55% to-vibrant-green/30 to-55%">잔흔 없는 시술은</span><br/>
-        <span className="bg-gradient-to-b from-transparent from-55% to-vibrant-green/30 to-55%">우연히 만들어지지 않습니다.</span>
+        <span className="bg-gradient-to-b from-transparent from-55% to-vibrant-green/30 to-55%">여자가 가질 수 있는</span><br/>
+        <span className="bg-gradient-to-b from-transparent from-55% to-vibrant-green/30 to-55%">최고의 직업이라 확신합니다.</span>
       </p>
     </div>
   </section>
@@ -168,21 +161,27 @@ const Problem: React.FC = () => (
 const Market: React.FC = () => (
   <section className="py-24 px-6 bg-main-dark text-center">
     <div className="max-w-[960px] mx-auto">
-      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Market Reality</span>
+      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Market Growth</span>
       <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-semibold text-white leading-snug">
-        그래서 지금 반영구 시장은<br/>잔흔 커버 시술이 늘어나고 있습니다
+        반영구 시장은<br/>매년 성장하고 있습니다
       </h2>
       <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-      <div className="grid grid-cols-3 gap-4 max-w-[800px] mx-auto mt-8">
-        {['잔흔 사례 1', '잔흔 사례 2', '잔흔 사례 3'].map((label, idx) => (
-          <div key={idx} className="aspect-[4/3] bg-white/5 border border-white/10 flex flex-col items-center justify-center gap-2">
-            <span className="text-2xl opacity-20">🖼</span>
-            <span className="text-[0.65rem] tracking-wider uppercase text-white/30">{label}</span>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-[800px] mx-auto mt-8">
+        {[
+          { val: '꾸준한 수요', desc: '눈썹 반영구는 유행이 아닌\n일상이 되었습니다' },
+          { val: '낮은 진입 비용', desc: '큰 매장 없이도\n1인 창업이 가능합니다' },
+          { val: '높은 재방문율', desc: '한 번 오신 고객은\n꾸준히 다시 찾습니다' },
+        ].map((item, idx) => (
+          <div key={idx} className="p-8 bg-white/5 border border-white/10">
+            <div className="font-serif text-lg font-bold text-vibrant-green mb-3">{item.val}</div>
+            <p className="text-sm text-white/50 leading-relaxed whitespace-pre-line">{item.desc}</p>
           </div>
         ))}
       </div>
-      <p className="font-serif text-[clamp(1.3rem,2.5vw,2rem)] italic font-bold text-vibrant-green mt-8 leading-relaxed">
-        "잘못된 시술 하나가 평생을 남깁니다."
+
+      <p className="font-serif text-[clamp(1.3rem,2.5vw,2rem)] italic font-bold text-vibrant-green mt-10 leading-relaxed">
+        "제대로 배우면, 평생 나를 지켜줄 기술이 됩니다."
       </p>
     </div>
   </section>
@@ -441,18 +440,15 @@ const Environment: React.FC = () => (
       <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Class Environment</span>
       <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">교육 환경</h2>
       <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
-      <div className="grid grid-cols-[2fr_1fr_1fr] gap-4 max-w-[900px] mx-auto mt-10">
-        <div className="row-span-2 min-h-[320px] bg-white/5 border border-white/10 flex flex-col items-center justify-center gap-2 p-10">
-          <span className="text-3xl opacity-20">🖼</span>
-          <span className="text-[0.68rem] tracking-wider uppercase text-white/30">수업 모습</span>
+      <div className="grid grid-cols-3 gap-4 max-w-[900px] mx-auto mt-10">
+        <div className="overflow-hidden rounded-lg">
+          <img src="/teaching1.jpeg" alt="수업 분석" className="w-full aspect-[3/4] object-cover" />
         </div>
-        <div className="aspect-square bg-white/5 border border-white/10 flex flex-col items-center justify-center gap-2">
-          <span className="text-xl opacity-20">🖼</span>
-          <span className="text-[0.68rem] tracking-wider uppercase text-white/30">드로잉 연습</span>
+        <div className="overflow-hidden rounded-lg">
+          <img src="/teaching2.jpeg" alt="실습 지도" className="w-full aspect-[3/4] object-cover" />
         </div>
-        <div className="aspect-square bg-white/5 border border-white/10 flex flex-col items-center justify-center gap-2">
-          <span className="text-xl opacity-20">🖼</span>
-          <span className="text-[0.68rem] tracking-wider uppercase text-white/30">고무판 연습</span>
+        <div className="overflow-hidden rounded-lg">
+          <img src="/teaching3.jpeg" alt="대모 실습" className="w-full aspect-[3/4] object-cover" />
         </div>
       </div>
     </div>
@@ -523,6 +519,30 @@ const reviewImages = [
   '/review7.jpeg', '/review8.jpeg', '/review9.jpeg',
   '/review10.jpeg',
 ];
+
+const GraduationPhotos: React.FC = () => (
+  <section className="py-24 px-6 bg-main-dark text-center">
+    <div className="max-w-[960px] mx-auto">
+      <span className="text-xs font-bold tracking-[0.35em] uppercase text-vibrant-green mb-5 inline-block">Together</span>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-semibold text-white">함께한 순간들</h2>
+      <div className="w-7 h-px bg-vibrant-green mx-auto my-6"></div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
+        {[
+          { src: '/together1.jpeg', label: '서울대 K뷰티 과정' },
+          { src: '/together2.jpeg', label: '수강생 단체' },
+          { src: '/together3.jpeg', label: '수료식' },
+        ].map((item, idx) => (
+          <div key={idx} className="overflow-hidden rounded-lg border border-white/10">
+            <img src={item.src} alt={item.label} className="w-full aspect-[4/3] object-cover" />
+            <div className="py-3 text-center">
+              <span className="text-xs text-white/50">{item.label}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 const ReviewSlider: React.FC = () => (
   <section className="py-24 px-0 bg-main-darker overflow-hidden">
@@ -742,7 +762,7 @@ const Footer: React.FC = () => (
     <div className="font-serif text-xl tracking-[0.4em] text-vibrant-green font-semibold mb-3">FIMBROW</div>
     <p className="text-xs text-white/25 leading-relaxed">
       반영구 눈썹 전문 교육 &nbsp;·&nbsp; 원장 박연두<br/>
-      Instagram @fimbrow &nbsp;·&nbsp; blog.naver.com/fimbrow<br/><br/>
+      Instagram @fimbrow &nbsp;·&nbsp; <a href="https://naver.me/xWzYgRCz" target="_blank" rel="noopener noreferrer" className="hover:text-vibrant-green transition-colors">네이버플레이스</a><br/><br/>
       본 페이지의 교육 내용, 이론북, 드로잉북, 영상 자료의 무단 복제 및 배포를 금합니다.
     </p>
   </footer>
@@ -764,6 +784,7 @@ export default function CoursePage() {
       <Environment />
       <Materials />
       <TargetSection />
+      <GraduationPhotos />
       <ReviewSlider />
       <Pricing />
       <ApplicationForm />
