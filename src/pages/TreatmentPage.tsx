@@ -33,7 +33,8 @@ const TreatmentNumbers: React.FC = () => (
         {[
           { val: '12', unit: '년', label: '임상 경력' },
           { val: '15,000', unit: '명', label: '누적 시술' },
-          { val: '100', unit: '%', label: '1:1 맞춤 상담' },
+          { val: '100', unit: '%', label: '1:1 맞춤 시술' },
+          { val: '1', unit: '', label: '단 한명을 위한 디자인' },
         ].map((item, idx) => (
           <div key={idx} className="py-10 pr-8 border-b border-white/10">
             <div className="flex items-baseline gap-1">
@@ -89,8 +90,7 @@ const PricingSection: React.FC = () => (
             ['쓰리콤보 (슬림엠보+수지)', '35만원'],
             ['입술 (거뭇한 입술 추천)', '45만원'],
             ['아이라인 (꼬리포함)', '20만원'],
-            ['아이라인 (장막)', '10만원'],
-            ['속눈썹 자라나는 생장술 1회', '10만원'],
+            ['아이라인 (점막)', '15만원'],
           ].map(([name, price], idx) => (
             <div key={idx} className="flex justify-between items-center py-4 border-b border-white/5">
               <span className="text-sm text-white/60">{name}</span>
@@ -98,11 +98,12 @@ const PricingSection: React.FC = () => (
             </div>
           ))}
 
-          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mt-12 mb-8">추가 시술</p>
+          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mt-12 mb-8">스킨 리페어</p>
           {[
-            ['컬러몬스터 앰플제거 1회', '25만원'],
-            ['아이라인/입술 레이저제거 1회', '15만원'],
-            ['눈썹 레이저제거 1회', '8만원'],
+            ['눈썹/속눈썹 자라나는 생장술 1회', '10만원'],
+            ['컬러몬스터 눈썹 잔흔케어 1회', '25만원'],
+            ['아이라인/입술 잔흔케어 1회', '15만원'],
+            ['눈썹 잔흔케어 1회', '8만원'],
           ].map(([name, price], idx) => (
             <div key={idx} className="flex justify-between items-center py-4 border-b border-white/5">
               <span className="text-sm text-white/60">{name}</span>
@@ -118,7 +119,7 @@ const PricingSection: React.FC = () => (
           <div className="mb-8 p-8 border border-white/10">
             <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-3">Package I</p>
             <h4 className="font-serif text-xl text-white mb-2">레이저로 제거 안 되는 심한 잔흔</h4>
-            <p className="text-xs text-white/40 mb-6">컬러몬스터 앰플(2회) + 레이저제거 1회(3회) + 잔흔커버 올수지</p>
+            <p className="text-xs text-white/40 mb-6">컬러몬스터 앰플(2회) + 잔흔케어 1회(3회) + 잔흔커버 올수지</p>
             <div className="flex items-baseline gap-4">
               <span className="text-sm text-white/30 line-through">114만원</span>
               <span className="font-serif text-3xl text-white">86만원</span>
@@ -128,7 +129,7 @@ const PricingSection: React.FC = () => (
           <div className="p-8 border border-white/10">
             <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-3">Package II</p>
             <h4 className="font-serif text-xl text-white mb-2">베이직 잔흔제거</h4>
-            <p className="text-xs text-white/40 mb-6">레이저제거(3회) + 잔흔커버 올수지</p>
+            <p className="text-xs text-white/40 mb-6">잔흔케어(3회) + 잔흔커버 올수지</p>
             <div className="flex items-baseline gap-4">
               <span className="text-sm text-white/30 line-through">64만원</span>
               <span className="font-serif text-3xl text-white">59만원</span>
@@ -144,7 +145,7 @@ const EventSection: React.FC = () => (
   <section className="py-24 px-8 md:px-16 bg-main-darker">
     <div className="max-w-[1100px] mx-auto">
       <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Event</p>
-      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">0원히 감사 EVENT</h2>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">영원히 감사 EVENT</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
         {[
@@ -363,7 +364,7 @@ const CustomerReviews: React.FC = () => (
     </div>
 
     <div className="relative">
-      <div className="flex gap-4 animate-scroll-left">
+      <div className="animate-review-scroll flex gap-4 w-max">
         {[...reviewImages, ...reviewImages].map((src, idx) => (
           <img
             key={idx}
@@ -374,19 +375,6 @@ const CustomerReviews: React.FC = () => (
         ))}
       </div>
     </div>
-
-    <style>{`
-      @keyframes scroll-left {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-scroll-left {
-        animation: scroll-left 40s linear infinite;
-      }
-      .animate-scroll-left:hover {
-        animation-play-state: paused;
-      }
-    `}</style>
   </section>
 );
 

@@ -49,6 +49,19 @@ body {
   animation-play-state: paused;
 }
 
+@keyframes review-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-review-scroll {
+  animation: review-scroll 50s linear infinite;
+}
+
+.animate-review-scroll:hover {
+  animation-play-state: paused;
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
