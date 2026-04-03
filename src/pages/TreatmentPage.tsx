@@ -1,40 +1,15 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
-const videos = ['/hero1.mp4', '/hero2.mp4', '/hero3.mp4'];
-
 const TreatmentHero: React.FC = () => {
-  const [videoIndex, setVideoIndex] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handleVideoEnded = useCallback(() => {
-    setVideoIndex((prev) => (prev + 1) % videos.length);
-  }, []);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play();
-    }
-  }, [videoIndex]);
-
   return (
     <section className="relative min-h-screen flex flex-col items-end justify-end px-8 md:px-16 pb-20 overflow-hidden">
-      <video
-        ref={videoRef}
+      <img
         className="absolute inset-0 w-full h-full object-cover"
-        src={videos[videoIndex]}
-        autoPlay muted playsInline
-        onEnded={handleVideoEnded}
+        src="/treatment-hero.jpeg"
+        alt="핌브로우 시술"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
-
-      <div className="absolute left-8 md:left-16 top-1/2 -translate-y-1/2 z-10" style={{ animation: 'fadeUp .8s ease both' }}>
-        <h1 className="font-serif text-[clamp(3.5rem,10vw,8rem)] font-light leading-[0.9] tracking-tight text-white">
-          FIMBROW<br/>
-          <span className="text-white/60">KOREA</span>
-        </h1>
-      </div>
 
       <div className="relative z-10 max-w-[400px] text-right" style={{ animation: 'fadeUp .8s ease .3s both' }}>
         <p className="text-[0.65rem] tracking-[0.3em] uppercase text-white/50 mb-4">Semi-Permanent Brow Specialist</p>
