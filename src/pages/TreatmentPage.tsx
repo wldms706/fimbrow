@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const TreatmentHero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-end justify-end px-8 md:px-16 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-end justify-end px-8 md:px-16 pb-20 overflow-hidden bg-black">
       <img
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover md:object-contain object-top"
         src="/treatment-hero.jpeg"
         alt="핌브로우 시술"
       />
@@ -353,6 +353,43 @@ const Footer: React.FC = () => (
   </footer>
 );
 
+const reviewImages = Array.from({ length: 13 }, (_, i) => `/reviews/review-${String(i + 1).padStart(2, '0')}.jpeg`);
+
+const CustomerReviews: React.FC = () => (
+  <section className="py-24 px-8 md:px-16 bg-main-darker overflow-hidden">
+    <div className="max-w-[1100px] mx-auto mb-12">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Reviews</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white">고객 후기</h2>
+    </div>
+
+    <div className="relative">
+      <div className="flex gap-4 animate-scroll-left">
+        {[...reviewImages, ...reviewImages].map((src, idx) => (
+          <img
+            key={idx}
+            src={src}
+            alt={`고객 후기 ${(idx % 13) + 1}`}
+            className="h-[400px] md:h-[500px] w-auto rounded-lg flex-shrink-0 object-cover"
+          />
+        ))}
+      </div>
+    </div>
+
+    <style>{`
+      @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-scroll-left {
+        animation: scroll-left 40s linear infinite;
+      }
+      .animate-scroll-left:hover {
+        animation-play-state: paused;
+      }
+    `}</style>
+  </section>
+);
+
 export default function TreatmentPage() {
   return (
     <>
@@ -363,6 +400,7 @@ export default function TreatmentPage() {
       <TreatmentProcess />
       <PhilosophySection />
       <TreatmentSlider />
+      <CustomerReviews />
       <EventSection />
       <TreatmentBooking />
       <TreatmentFAQ />
