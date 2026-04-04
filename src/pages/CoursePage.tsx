@@ -1,30 +1,12 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-
-const videos = ['/hero1.mp4', '/hero2.mp4', '/hero3.mp4'];
+import React, { useState } from 'react';
 
 const Hero: React.FC = () => {
-  const [videoIndex, setVideoIndex] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handleVideoEnded = useCallback(() => {
-    setVideoIndex((prev) => (prev + 1) % videos.length);
-  }, []);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play();
-    }
-  }, [videoIndex]);
-
   return (
     <section className="relative min-h-screen flex flex-col items-start justify-end px-8 md:px-16 pb-20 overflow-hidden">
       <video
-        ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
-        src={videos[videoIndex]}
-        autoPlay muted playsInline
-        onEnded={handleVideoEnded}
+        src="/course-hero.mp4"
+        autoPlay muted playsInline loop
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"></div>
 
@@ -39,7 +21,7 @@ const Hero: React.FC = () => {
           12년 임상 노하우를 전수합니다.
         </p>
         <div className="flex gap-4">
-          <a href="#application" className="px-8 py-3 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity">
+          <a href="https://naver.me/5FDkwFEN" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity">
             Apply Now
           </a>
           <a href="#curriculum" className="px-8 py-3 border border-white/30 text-white text-[0.7rem] tracking-[0.2em] uppercase hover:bg-white hover:text-main-dark transition-all">
@@ -135,7 +117,7 @@ const Urgency: React.FC = () => (
         <h3 className="font-serif text-3xl font-light text-white">2026년 6월 마감</h3>
         <p className="text-sm text-white/40 mt-2">통합 커리큘럼 마지막 기수 · 교육지원금 100만원 마지막 적용</p>
       </div>
-      <a href="#application" className="inline-block px-10 py-4 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity shrink-0">
+      <a href="https://naver.me/5FDkwFEN" target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-4 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity shrink-0">
         Apply Now
       </a>
     </div>
@@ -442,7 +424,7 @@ const Pricing: React.FC = () => (
               6월까지는 통합 커리큘럼을 600만원에 수강하실 수 있습니다.
             </p>
           </div>
-          <a href="#application" className="block w-full py-5 bg-white text-main-dark text-center text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity">
+          <a href="https://naver.me/5FDkwFEN" target="_blank" rel="noopener noreferrer" className="block w-full py-5 bg-white text-main-dark text-center text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity">
             Apply Now
           </a>
         </div>
@@ -487,91 +469,27 @@ const CourseFAQ: React.FC = () => {
   );
 };
 
-const ApplicationForm: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('신청서가 접수되었습니다.\n순차적으로 카카오톡으로 상담을 안내드리겠습니다.\n감사합니다.');
-  };
-
-  const inputClass = "w-full px-4 py-3 bg-transparent border border-white/10 text-sm text-white outline-none focus:border-white/30 transition-colors placeholder:text-white/15";
-
-  return (
-    <section id="application" className="py-24 px-8 md:px-16 bg-main-darker">
-      <div className="max-w-[640px] mx-auto">
-        <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Apply</p>
-        <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-4">수강 상담 신청</h2>
-        <p className="text-sm text-white/30 mb-16">작성해주신 분들께 순차적으로 상담을 안내드립니다.</p>
-
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-2">성함 *</label>
-            <input type="text" required placeholder="이름을 입력해 주세요" className={inputClass} />
-          </div>
-          <div>
-            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-2">연락처 *</label>
-            <input type="tel" required placeholder="010-0000-0000" className={inputClass} />
-          </div>
-
-          <div className="h-px bg-white/5"></div>
-
-          <div>
-            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-3">현재 하고 있는 일 *</label>
-            {['직장인', '미용업 종사', '반영구 시술자', '창업 준비 중', '기타'].map((opt, i) => (
-              <label key={i} className="flex items-center gap-3 text-sm text-white/50 py-1.5 cursor-pointer">
-                <input type="radio" name="job" className="accent-white w-3 h-3" /> {opt}
-              </label>
-            ))}
-          </div>
-
-          <div>
-            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-3">반영구 경력 *</label>
-            {['완전 입문', '교육만 들은 경험 있음', '실제 시술 경험 있음'].map((opt, i) => (
-              <label key={i} className="flex items-center gap-3 text-sm text-white/50 py-1.5 cursor-pointer">
-                <input type="radio" name="exp" className="accent-white w-3 h-3" /> {opt}
-              </label>
-            ))}
-          </div>
-
-          <div className="h-px bg-white/5"></div>
-
-          <div>
-            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-2">배우려는 이유 *</label>
-            <textarea required placeholder="자유롭게 작성해 주세요" className={`${inputClass} resize-y min-h-[88px]`} />
-          </div>
-          <div>
-            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-2">교육 후 목표 *</label>
-            <textarea required placeholder="자유롭게 작성해 주세요" className={`${inputClass} resize-y min-h-[88px]`} />
-          </div>
-
-          <div className="h-px bg-white/5"></div>
-
-          <div>
-            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-3">교육 가능 시기 *</label>
-            {['바로 가능', '1개월 이내', '3개월 이내', '아직 미정'].map((opt, i) => (
-              <label key={i} className="flex items-center gap-3 text-sm text-white/50 py-1.5 cursor-pointer">
-                <input type="radio" name="timing" className="accent-white w-3 h-3" /> {opt}
-              </label>
-            ))}
-          </div>
-
-          <div>
-            <label className="block text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-2">궁금한 점</label>
-            <textarea placeholder="자유롭게 남겨주세요" className={`${inputClass} resize-y min-h-[88px]`} />
-          </div>
-
-          <button type="submit" className="w-full py-4 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity cursor-pointer mt-4">
-            Submit
-          </button>
-        </form>
-
-        <p className="text-xs text-white/15 mt-8 leading-relaxed">
-          ※ 교육 상담은 신청 순서대로 진행됩니다.<br/>
-          ※ 수강 의지가 확실한 분만 신청해 주시기 바랍니다.
-        </p>
-      </div>
-    </section>
-  );
-};
+const ApplicationForm: React.FC = () => (
+  <section id="application" className="py-24 px-8 md:px-16 bg-main-darker">
+    <div className="max-w-[640px] mx-auto text-center">
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Apply</p>
+      <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-4">수강 상담 신청</h2>
+      <p className="text-sm text-white/30 mb-12">아래 버튼을 눌러 신청서를 작성해 주세요.</p>
+      <a
+        href="https://naver.me/5FDkwFEN"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block px-12 py-5 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity"
+      >
+        수강 신청하기
+      </a>
+      <p className="text-xs text-white/15 mt-8 leading-relaxed">
+        ※ 교육 상담은 신청 순서대로 진행됩니다.<br/>
+        ※ 수강 의지가 확실한 분만 신청해 주시기 바랍니다.
+      </p>
+    </div>
+  </section>
+);
 
 const Footer: React.FC = () => (
   <footer className="py-16 px-8 md:px-16 bg-main-dark border-t border-white/5">
