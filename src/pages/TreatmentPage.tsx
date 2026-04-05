@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const TreatmentHero: React.FC = () => {
@@ -379,6 +379,10 @@ const CustomerReviews: React.FC = () => (
 );
 
 export default function TreatmentPage() {
+  useEffect(() => {
+    document.title = '부산자연눈썹 반영구 전문 시술 | FIMBROW 핌브로우';
+  }, []);
+
   return (
     <>
       <TreatmentHero />

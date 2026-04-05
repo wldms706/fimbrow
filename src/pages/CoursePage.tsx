@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Hero: React.FC = () => {
   return (
@@ -512,6 +512,10 @@ const Footer: React.FC = () => (
 );
 
 export default function CoursePage() {
+  useEffect(() => {
+    document.title = '부산반영구수강 마스터클래스 | FIMBROW 핌브로우';
+  }, []);
+
   return (
     <>
       <Hero />
