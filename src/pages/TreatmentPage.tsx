@@ -119,7 +119,7 @@ const PricingSection: React.FC = () => (
           <div className="mb-8 p-8 border border-white/10">
             <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-3">Package I</p>
             <h4 className="font-serif text-xl text-white mb-2">레이저로 제거 안 되는 심한 잔흔</h4>
-            <p className="text-xs text-white/40 mb-6">컬러몬스터 앰플(2회) + 잔흔케어 1회(3회) + 잔흔커버 올수지</p>
+            <p className="text-xs text-white/40 mb-6">컬러몬스터 앰플(2회) + 잔흔케어(3회) + 잔흔커버 올수지</p>
             <div className="flex items-baseline gap-4">
               <span className="text-sm text-white/30 line-through">114만원</span>
               <span className="font-serif text-3xl text-white">86만원</span>
@@ -154,7 +154,7 @@ const EventSection: React.FC = () => (
           { num: '03', title: '지인소개 시', benefit: '+10,000p', desc: '소개 당사자는 다음 시술 시 사용 가능한 포인트 적립' },
         ].map((evt, idx) => (
           <div key={idx} className="p-8 bg-white/[0.02] border border-white/5 hover:border-white/15 transition-colors">
-            <span className="font-serif text-4xl text-white/10 block mb-6">{evt.num}</span>
+            <span className="font-serif text-4xl text-white/25 block mb-6">{evt.num}</span>
             <h4 className="font-serif text-xl text-white mb-2">{evt.title}</h4>
             <p className="font-serif text-2xl text-accent mb-4">{evt.benefit}</p>
             <p className="text-xs text-white/40 leading-relaxed">{evt.desc}</p>
@@ -180,7 +180,7 @@ const TreatmentProcess: React.FC = () => (
           { step: '04', title: '애프터케어', desc: '리터치 시기까지 꼼꼼히 케어합니다.' },
         ].map((item, idx) => (
           <div key={idx} className="py-8 pr-8 border-t border-white/10">
-            <span className="font-serif text-5xl text-white/5 block mb-6">{item.step}</span>
+            <span className="font-serif text-5xl text-white/20 block mb-6">{item.step}</span>
             <h4 className="text-sm font-medium text-white tracking-wider mb-2">{item.title}</h4>
             <p className="text-xs text-white/35 leading-relaxed">{item.desc}</p>
           </div>

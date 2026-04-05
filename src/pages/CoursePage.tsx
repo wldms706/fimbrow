@@ -240,48 +240,152 @@ const Difference: React.FC = () => (
   </section>
 );
 
-const Curriculum: React.FC = () => (
+const Curriculum: React.FC = () => {
+  const [openDetail, setOpenDetail] = useState<number | null>(null);
+
+  return (
   <section id="curriculum" className="py-24 px-8 md:px-16 bg-main-darker">
     <div className="max-w-[1100px] mx-auto">
       <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Curriculum</p>
       <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-16">커리큘럼</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-12">
-        <div className="flex items-center gap-6">
-          <span className="font-serif text-5xl text-white/10">01</span>
-          <div>
-            <h4 className="text-sm font-medium text-white tracking-wider">온라인 4주</h4>
-            <p className="text-xs text-white/35 mt-1">디자인 기초 · 결 드로잉 기초 분석</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {[
+          {
+            tag: 'One Day',
+            title: '원데이 (문제 해결반)',
+            price: '110만원',
+            tagline: '"잘못된 니들링 테크닉 1:1로 디테일 교정"',
+            badges: ['문제 즉시 해결', '단기 집중'],
+            recommend: ['시술 경험은 있지만', '특정 문제 반복: 균형 / 완성도가 일정하지 않은 상태', '단기 집중으로 문제를 바로 해결하고 싶은 분'],
+            points: ['니들링 1:1 문제 집중 교정', '모델 1명 실습', '7시간 과정'],
+            detail: {
+              schedule: '개별 조율',
+              time: '12:00 ~ 19:00 (총 7시간)',
+              content: '기초 이론 + 고무판 + 모델 1명 실습 (재료 미포함)',
+            },
+          },
+          {
+            tag: 'Short Course',
+            title: '단과반 (결과 안정화반)',
+            price: '300만원',
+            priceNote: '*7월부터 350만원 인상 예정',
+            tagline: '"마스터반 핵심 기술 파트 중 하나만 분리한 과정"',
+            badges: [],
+            recommend: ['시술은 가능하지만 전체 결과의 안정성이 부족한 분', '피부별 색 빠짐, 유지력 차이, 밸런스 불균형 문제까지', '장기적으로 흔들리지 않는 결과를 만들고 싶은 분'],
+            points: ['원리 기반 테크닉 안정화', '모델 최대 2명 실습 + 1:1 맞춤 교정', '5회 과정 (회당 5시간)'],
+            detail: {
+              note: '4월까지 마감 / 5월부터 가능',
+              schedule: '2026년 5월 (매주 수요일 / 5주 과정)',
+              time: '12:00 ~ 17:00 (회당 5시간)',
+              content: '이론 + 기술 + 모델 최대 2명 실습',
+            },
+          },
+          {
+            tag: 'Master',
+            title: '마스터반 (창업 & 재수강 풀패키지)',
+            price: '600만원',
+            priceNote: '*7월부터 700만원 인상 예정',
+            tagline: '',
+            badges: [],
+            recommend: ['처음부터 체계적으로 배우고 싶은 분', '이미 배웠지만 고객 받기 어려운 상태', '마스터반 풀패키지로 창업까지 준비하고 싶은 분'],
+            points: ['단과반 2개 + 창업 + 마케팅 + 사후관리까지 포함', '온라인 4주 + 본수업 2개월 (총 7회)', '+ 추가 수업: 졸업 후 한달 뒤, 7시간 교정 진행'],
+            detail: {
+              note: '5월까지 마감 / 6월부터 가능',
+              online: '4주 드로잉 수업',
+              main: '2개월 과정 (매주 화요일 / 총 7회)',
+              time: '회당 7시간',
+              extra: '졸업 후 1개월 뒤 교정 수업 7시간',
+              content: '원리기반 고급 이론 + 기술 + 모델 최대 4명 실습 + 평생 무한 피드백',
+            },
+          },
+        ].map((course, idx) => (
+          <div key={idx} className="border border-white/10 p-8 flex flex-col">
+            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-3">{course.tag}</p>
+            <h3 className="font-serif text-xl text-white mb-2">{course.title}</h3>
+            <div className="flex items-baseline gap-2 mb-1">
+              <span className="font-serif text-3xl text-white">{course.price}</span>
+            </div>
+            {course.priceNote && <p className="text-xs text-accent/70 mb-4">{course.priceNote}</p>}
+            {course.tagline && <p className="text-xs text-white/50 italic mb-6">{course.tagline}</p>}
+            {course.badges.length > 0 && (
+              <div className="flex gap-2 mb-6">
+                {course.badges.map((b, i) => (
+                  <span key={i} className="text-[0.6rem] px-3 py-1 border border-white/10 text-white/50">{b}</span>
+                ))}
+              </div>
+            )}
+
+            <div className="mb-6">
+              <p className="text-[0.6rem] tracking-[0.2em] uppercase text-white/30 mb-3">추천 대상</p>
+              {course.recommend.map((r, i) => (
+                <p key={i} className="text-xs text-white/40 leading-relaxed">• {r}</p>
+              ))}
+            </div>
+
+            <div className="mb-6">
+              <p className="text-[0.6rem] tracking-[0.2em] uppercase text-white/30 mb-3">핵심 포인트</p>
+              {course.points.map((p, i) => (
+                <p key={i} className="text-xs text-white/40 leading-relaxed">• {p}</p>
+              ))}
+            </div>
+
+            <button
+              onClick={() => setOpenDetail(openDetail === idx ? null : idx)}
+              className="mt-auto pt-4 border-t border-white/5 text-xs text-white/30 hover:text-white/60 transition-colors cursor-pointer text-left"
+            >
+              {openDetail === idx ? '▲ 수업 정보 닫기' : '▼ 수업 정보 보기'}
+            </button>
+            {openDetail === idx && (
+              <div className="mt-4 p-4 bg-white/[0.02] border border-white/5 space-y-2">
+                <p className="text-[0.6rem] tracking-[0.2em] uppercase text-white/30 mb-2">수업 정보</p>
+                {course.detail.note && <p className="text-xs text-accent/70">{course.detail.note}</p>}
+                {course.detail.schedule && <p className="text-xs text-white/40">• 일정: {course.detail.schedule}</p>}
+                {course.detail.online && <p className="text-xs text-white/40">• 온라인: {course.detail.online}</p>}
+                {course.detail.main && <p className="text-xs text-white/40">• 본수업: {course.detail.main}</p>}
+                <p className="text-xs text-white/40">• 시간: {course.detail.time}</p>
+                {course.detail.extra && <p className="text-xs text-white/40">• 추가 수업: {course.detail.extra}</p>}
+                <p className="text-xs text-white/40">• 구성: {course.detail.content}</p>
+              </div>
+            )}
           </div>
-        </div>
-        <div className="flex items-center gap-6">
-          <span className="font-serif text-5xl text-white/10">02</span>
-          <div>
-            <h4 className="text-sm font-medium text-white tracking-wider">오프라인 2개월</h4>
-            <p className="text-xs text-white/35 mt-1">매주 화요일 7시간 (총 56시간)</p>
-          </div>
-        </div>
+        ))}
       </div>
 
-      <div className="border-t border-white/10 pt-8">
-        <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mb-6">본 수업 커리큘럼</p>
-        <div className="flex flex-wrap gap-2">
-          {['피부학', '색소학', '위생학', '디자인', '드로잉', '고무판 실습', '핸들링 교정', '미세한 압 조절 훈련', '엠보', '수지', '콤보', '잔흔 커버', '비대칭 교정 원리'].map((item, i) => (
-            <span key={i} className="text-xs text-white/50 px-4 py-2 border border-white/5">{item}</span>
-          ))}
-        </div>
-      </div>
+    </div>
+  </section>
+  );
+};
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mt-12">
-        <div className="p-6 bg-white/[0.02] border border-white/5">
-          <h4 className="text-sm text-white mb-1">졸업 후 추가 피드백 수업</h4>
-          <p className="text-xs text-white/30">졸업 한 달 후 7시간 추가 피드백</p>
-        </div>
-        <div className="p-6 bg-white/[0.02] border border-white/5">
-          <h4 className="text-sm text-white mb-1">졸업 후 무한 피드백</h4>
-          <p className="text-xs text-white/30">졸업 이후에도 피드백은 계속됩니다</p>
-        </div>
+const CourseConsult: React.FC = () => (
+  <section className="py-20 px-8 md:px-16 bg-main-dark border-y border-white/5">
+    <div className="max-w-[800px] mx-auto text-center">
+      <h3 className="font-serif text-[clamp(1.5rem,3vw,2.2rem)] font-light text-white mb-8">
+        위 과정 중 지금 내 상태에 맞는<br/>과정이 궁금하신가요?
+      </h3>
+      <div className="space-y-3 mb-10 text-left max-w-[400px] mx-auto">
+        {[
+          '시술은 하지만 결과가 들쭉날쭉하다',
+          '배웠지만 고객 받기가 불안하다',
+          '처음부터 제대로 배우고 싶다',
+        ].map((item, idx) => (
+          <p key={idx} className="text-sm text-white/50">
+            <span className="text-white/30 mr-2">{idx + 1}.</span>{item}
+          </p>
+        ))}
       </div>
+      <p className="text-sm text-white/40 mb-8 leading-relaxed">
+        수강 신청 및 상담은 아래 수강신청을 작성해주세요.<br/>
+        상세한 상담 진행해 드리겠습니다.
+      </p>
+      <a
+        href="https://naver.me/5FDkwFEN"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block px-10 py-4 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity"
+      >
+        수강 신청하기
+      </a>
     </div>
   </section>
 );
@@ -439,7 +543,7 @@ const CourseFAQ: React.FC = () => {
     { q: '반영구 경험이 전혀 없어도 수강할 수 있나요?', a: '네, 가능합니다. 완전 입문자도 수강 가능하도록 기초부터 체계적으로 교육합니다. 온라인 사전 교육 4주를 통해 기본기를 먼저 다진 후 본 수업에 들어갑니다.' },
     { q: '수업 일정은 어떻게 되나요?', a: '온라인 4주 사전 교육 후, 오프라인 본 수업은 매주 화요일 7시간씩 2개월간 진행됩니다. 총 56시간의 교육과 최대 4회의 대모 실습이 포함됩니다.' },
     { q: '수강 후 바로 창업이 가능한가요?', a: '졸업 후 대모 실습과 피드백 수업을 통해 실전 감각을 충분히 익힌 뒤 창업하시는 것을 권장합니다. 졸업 후에도 무한 피드백을 제공하므로 안심하고 시작하실 수 있습니다.' },
-    { q: '수강료 분할 납부가 가능한가요?', a: '예약금 100만원 입금으로 기수를 확정하고, 잔금은 수업 전날까지 납부하시면 됩니다. 카드 결제 시 부가세 10%가 별도 적용됩니다.' },
+    { q: '수강료 분할 납부가 가능한가요?', a: '예약금 100만원 입금으로 기수를 확정하고, 잔금은 온라인 수업 전날까지 납부하셔야 수업이 진행됩니다. 카드 결제 시 부가세 10%가 별도 적용됩니다.' },
     { q: '졸업 후 피드백은 어떻게 진행되나요?', a: '졸업 한 달 후 7시간 추가 피드백 수업이 포함되어 있으며, 이후에도 평생 무한 피드백을 제공합니다. 카카오톡이나 방문을 통해 언제든 피드백을 받으실 수 있습니다.' },
     { q: '중도 취소 및 환불이 가능한가요?', a: '영상 및 자료가 사전 제공되므로, 수업 시작 후 중도 취소 시 환불이 어렵습니다. 수강 의지가 확실한 분만 신청해 주시기 바랍니다.' },
   ];
@@ -528,6 +632,7 @@ export default function CoursePage() {
       <TechniqueSection />
       <Difference />
       <Curriculum />
+      <CourseConsult />
       <Environment />
       <Materials />
       <GraduationPhotos />

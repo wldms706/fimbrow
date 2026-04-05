@@ -12,22 +12,16 @@ const Navbar: React.FC = () => {
       <div className="flex items-center gap-8">
         <Link
           to="/"
-          className={`text-[0.7rem] font-medium tracking-[0.2em] uppercase transition-colors ${!isCourse ? 'text-white' : 'text-white/40 hover:text-white'}`}
+          className={`text-[0.75rem] font-medium tracking-[0.15em] transition-colors ${!isCourse ? 'text-white' : 'text-white/40 hover:text-white'}`}
         >
-          Treatment
+          시술문의
         </Link>
         <Link
           to="/course"
-          className={`text-[0.7rem] font-medium tracking-[0.2em] uppercase transition-colors ${isCourse ? 'text-white' : 'text-white/40 hover:text-white'}`}
+          className={`text-[0.75rem] font-medium tracking-[0.15em] transition-colors ${isCourse ? 'text-white' : 'text-white/40 hover:text-white'}`}
         >
-          Course
+          교육문의
         </Link>
-        <a
-          href={isCourse ? '#application' : '#booking'}
-          className="px-6 py-2.5 border border-white/30 text-white text-[0.65rem] font-medium tracking-[0.2em] uppercase hover:bg-white hover:text-main-dark transition-all"
-        >
-          {isCourse ? 'Apply' : 'Book Now'}
-        </a>
       </div>
     </nav>
   );
