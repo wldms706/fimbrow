@@ -28,7 +28,7 @@ const TreatmentHero: React.FC = () => {
 const TreatmentNumbers: React.FC = () => (
   <section className="py-24 px-8 md:px-16 bg-main-dark">
     <div className="max-w-[1100px] mx-auto">
-      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-12">Numbers</p>
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-12 text-center">Numbers</p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-white/10">
         {[
           { val: '12', unit: '년', label: '임상 경력' },
@@ -36,8 +36,8 @@ const TreatmentNumbers: React.FC = () => (
           { val: '100', unit: '%', label: '1:1 맞춤 시술' },
           { val: '1', unit: '', label: '단 한명을 위한 디자인' },
         ].map((item, idx) => (
-          <div key={idx} className="py-10 pr-8 border-b border-white/10">
-            <div className="flex items-baseline gap-1">
+          <div key={idx} className="py-10 border-b border-white/10 text-center">
+            <div className="flex items-baseline gap-1 justify-center">
               <span className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-light text-white leading-none">{item.val}</span>
               <span className="text-sm text-white/40">{item.unit}</span>
             </div>
@@ -84,7 +84,29 @@ const PricingSection: React.FC = () => (
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div>
-          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mb-8">개별 시술</p>
+          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mb-8">잔흔 킬러 패키지</p>
+
+          <div className="mb-8 p-8 border border-white/10">
+            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-3">Package I</p>
+            <h4 className="font-serif text-xl text-white mb-2">레이저로 제거 안 되는 심한 잔흔</h4>
+            <p className="text-xs text-white/40 mb-6">컬러몬스터 앰플(2회) + 잔흔케어(3회) + 잔흔커버 올수지</p>
+            <div className="flex items-baseline gap-4">
+              <span className="text-sm text-white/30 line-through">114만원</span>
+              <span className="font-serif text-3xl text-white">86만원</span>
+            </div>
+          </div>
+
+          <div className="p-8 border border-white/10">
+            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-3">Package II</p>
+            <h4 className="font-serif text-xl text-white mb-2">베이직 잔흔제거</h4>
+            <p className="text-xs text-white/40 mb-6">잔흔케어(3회) + 잔흔커버 올수지</p>
+            <div className="flex items-baseline gap-4">
+              <span className="text-sm text-white/30 line-through">64만원</span>
+              <span className="font-serif text-3xl text-white">59만원</span>
+            </div>
+          </div>
+
+          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mt-12 mb-8">개별 시술</p>
           {[
             ['올수지 (잔흔커버)', '40만원'],
             ['쓰리콤보 (슬림엠보+수지)', '35만원'],
@@ -113,29 +135,6 @@ const PricingSection: React.FC = () => (
           <p className="text-xs text-white/20 mt-6">리터치 포함 / 카드 가능 VAT 별도 / 중복할인 X</p>
         </div>
 
-        <div>
-          <p className="text-[0.6rem] tracking-[0.3em] uppercase text-white/30 mb-8">잔흔 킬러 패키지</p>
-
-          <div className="mb-8 p-8 border border-white/10">
-            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-3">Package I</p>
-            <h4 className="font-serif text-xl text-white mb-2">레이저로 제거 안 되는 심한 잔흔</h4>
-            <p className="text-xs text-white/40 mb-6">컬러몬스터 앰플(2회) + 잔흔케어(3회) + 잔흔커버 올수지</p>
-            <div className="flex items-baseline gap-4">
-              <span className="text-sm text-white/30 line-through">114만원</span>
-              <span className="font-serif text-3xl text-white">86만원</span>
-            </div>
-          </div>
-
-          <div className="p-8 border border-white/10">
-            <p className="text-[0.6rem] tracking-[0.2em] uppercase text-accent mb-3">Package II</p>
-            <h4 className="font-serif text-xl text-white mb-2">베이직 잔흔제거</h4>
-            <p className="text-xs text-white/40 mb-6">잔흔케어(3회) + 잔흔커버 올수지</p>
-            <div className="flex items-baseline gap-4">
-              <span className="text-sm text-white/30 line-through">64만원</span>
-              <span className="font-serif text-3xl text-white">59만원</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -254,7 +253,7 @@ const TreatmentBooking: React.FC = () => (
             카카오톡으로 편하게 문의해 주세요.
           </p>
           <a
-            href="https://pf.kakao.com/_gxmFxmG"
+            href="http://pf.kakao.com/_gxmFxmG/chat"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-10 py-4 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity"

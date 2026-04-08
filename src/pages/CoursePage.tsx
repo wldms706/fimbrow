@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
 const Numbers: React.FC = () => (
   <section className="py-24 px-8 md:px-16 bg-main-dark">
     <div className="max-w-[1100px] mx-auto">
-      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-12">Numbers</p>
+      <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-12 text-center">Numbers</p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-white/10">
         {[
           { val: '12', unit: '년', label: '임상 경력' },
@@ -44,8 +44,8 @@ const Numbers: React.FC = () => (
           { val: '4주+56', unit: 'h', label: '교육 시간' },
           { val: '4', unit: '명', label: '최대 인원' },
         ].map((item, idx) => (
-          <div key={idx} className="py-10 pr-8 border-b border-white/10">
-            <div className="flex items-baseline gap-1">
+          <div key={idx} className="py-10 border-b border-white/10 text-center">
+            <div className="flex items-baseline gap-1 justify-center">
               <span className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-light text-white leading-none">{item.val}</span>
               <span className="text-sm text-white/40">{item.unit}</span>
             </div>
@@ -73,7 +73,7 @@ const WhyThisJob: React.FC = () => (
       </div>
       <div className="grid grid-cols-2 gap-1">
         {['자유로운 시간', '장소의 자유', '높은 수익성', '평생 기술'].map((tag, idx) => (
-          <div key={idx} className="p-6 bg-white/[0.02] border border-white/5">
+          <div key={idx} className="p-6 bg-white/[0.02] border border-white/5 text-center">
             <span className="text-sm text-white/60">{tag}</span>
           </div>
         ))}
@@ -95,15 +95,15 @@ const MarketGrowth: React.FC = () => (
           { title: '높은 재방문율', desc: '한 번 오신 고객은\n꾸준히 다시 찾습니다' },
         ].map((item, idx) => (
           <div key={idx} className="p-8 bg-white/[0.02] border border-white/5">
-            <span className="font-serif text-4xl text-white/5 block mb-6">0{idx + 1}</span>
+            <span className="font-serif text-4xl text-white/20 block mb-6">0{idx + 1}</span>
             <h4 className="text-sm font-medium text-white tracking-wider mb-3">{item.title}</h4>
             <p className="text-xs text-white/35 leading-relaxed whitespace-pre-line">{item.desc}</p>
           </div>
         ))}
       </div>
 
-      <p className="font-serif text-[clamp(1.2rem,2.5vw,1.8rem)] text-white/60 italic mt-16 text-center">
-        "제대로 배우면, 평생 나를 지켜줄 기술이 됩니다."
+      <p className="font-serif text-[clamp(1.2rem,2.5vw,1.8rem)] text-white/60 italic mt-16 text-center leading-relaxed">
+        "제대로 배우면,<br/>평생 나를 지켜줄 기술이 됩니다."
       </p>
     </div>
   </section>
@@ -115,7 +115,7 @@ const Urgency: React.FC = () => (
       <div>
         <p className="text-[0.6rem] tracking-[0.4em] uppercase text-accent mb-3">Limited</p>
         <h3 className="font-serif text-3xl font-light text-white">2026년 6월 마감</h3>
-        <p className="text-sm text-white/40 mt-2">통합 커리큘럼 마지막 기수 · 교육지원금 100만원 마지막 적용</p>
+        <p className="text-sm text-white/40 mt-2">통합 커리큘럼 마지막 기수<br/>교육지원금 100만원 마지막 적용</p>
       </div>
       <a href="https://naver.me/5FDkwFEN" target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-4 bg-white text-main-dark text-[0.7rem] font-medium tracking-[0.2em] uppercase hover:opacity-80 transition-opacity shrink-0">
         Apply Now
@@ -219,7 +219,7 @@ const Difference: React.FC = () => (
     <div className="max-w-[1100px] mx-auto">
       <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/30 mb-4">Why Only 4</p>
       <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-white mb-4">
-        왜 한 기수에 4명만 모집할까요?
+        왜 한 기수에<br/>4명만 모집할까요?
       </h2>
       <p className="text-sm text-white/40 italic mb-16">"교육의 질을 희석하지 않기 위해서입니다."</p>
 
@@ -230,7 +230,7 @@ const Difference: React.FC = () => (
           { num: '03', title: '대모 실습', desc: '최소 3~5시간 전 과정을 원장이 옆에서 직접 피드백합니다. 이것이 진짜 대모입니다.' },
         ].map((item, idx) => (
           <div key={idx} className="p-8 bg-white/[0.02] border border-white/5 hover:border-white/15 transition-colors">
-            <span className="font-serif text-4xl text-white/5 block mb-6">{item.num}</span>
+            <span className="font-serif text-4xl text-white/20 block mb-6">{item.num}</span>
             <h4 className="text-sm font-medium text-white tracking-wider mb-3">{item.title}</h4>
             <p className="text-xs text-white/35 leading-relaxed">{item.desc}</p>
           </div>
