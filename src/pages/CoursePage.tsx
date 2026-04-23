@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-start justify-end px-8 md:px-16 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-start justify-end px-8 md:px-16 pb-20 overflow-hidden bg-black">
       <video
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover md:object-contain"
         src="/course-hero.mp4"
         autoPlay muted playsInline loop
       />
@@ -126,7 +126,7 @@ const Urgency: React.FC = () => (
 
 const Philosophy: React.FC = () => (
   <section className="relative py-32 px-8 md:px-16 overflow-hidden">
-    <img src="/profile2.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+    <img src="/profile2.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover md:object-contain bg-black" />
     <div className="absolute inset-0 bg-black/60"></div>
     <div className="relative z-10 max-w-[600px]">
       <p className="text-[0.6rem] tracking-[0.4em] uppercase text-white/40 mb-6">Education Philosophy</p>
